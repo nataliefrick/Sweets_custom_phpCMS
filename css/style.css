@@ -1,0 +1,390 @@
+/* smallest */
+@media (max-width: 400px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        text-align: center;
+        /* padding-left: 3em;
+        padding-right: 3em; */
+        background-color: rgba(72, 94, 94, 0.2);
+    }
+    
+    nav ul,
+    #mainmenu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin: 0;
+        justify-content: center;
+        padding-bottom: 1em;
+    }
+
+    #recipe {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+
+    .column-photo {
+        width: 100%;
+    }
+
+    
+    .picture {
+        text-align: center;
+    }
+
+    #recipe img {
+        width: 100%;
+    }
+
+    .column-recipe {
+        width: 100%;
+    }
+    
+    div#content {
+        margin-top: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    div.ingredients {
+        width: 100%;
+    }
+    
+    div.instructions {
+        width: 100%;
+    }
+
+}
+
+/* smaller */
+@media (min-width: 401px) and (max-width: 1023px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding-left: 3em;
+        padding-right: 3em;
+        background-color: rgba(72, 94, 94, 0.2);
+    }
+    
+    nav ul,
+    #mainmenu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin: 0;
+    }
+
+    #recipe {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .column-photo {
+        width: 100%;
+    }
+
+    
+    .picture {
+        text-align: center;
+    }
+
+    #recipe img {
+        width: 100%;
+    }
+
+    .column-recipe {
+        width: 100%;
+    }
+
+    div#content {
+        margin-top: 1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    div.ingredients {
+        width: 40%;
+    }
+    
+    div.instructions {
+        width: 60%;
+    }
+    
+}
+
+/* medium */
+@media (min-width: 1024px) and (max-width: 1280px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding-left: 3em;
+        padding-right: 3em;
+        background-color: rgba(72, 94, 94, 0.2);
+    }
+    
+    nav ul,
+    #mainmenu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin: 0;
+    }
+
+    #recipe {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .container {
+        flex-direction: row;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .column-photo {
+        width: 50%;
+    }
+
+    .picture {
+        text-align: right;
+    }
+
+    #recipe img {
+        width: 92%;
+        max-width: 400px;
+        padding-right: 40px;
+    }
+
+    .column-recipe {
+        width: 50%;
+    }
+    
+    div#content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    div.ingredients {
+        margin-top: 40px;
+        width: 35%;
+    }
+    
+    div.instructions {
+        margin-top: 40px;
+        width: 65%;
+    }
+    
+}
+
+/* Larger */
+@media (min-width: 1281px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding-left: 3em;
+        padding-right: 3em;
+        background-color: rgba(72, 94, 94, 0.2);
+    }
+
+    nav ul,
+    #mainmenu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin: 0;
+    }
+
+    #recipe {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .container {
+        flex-direction: row;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .column-photo {
+        width: 30%;
+    }
+
+    .picture {
+        text-align: right;
+    }
+
+    #recipe img {
+        width: 92%;
+        max-width: 400px;
+        padding-right: 40px;
+    }
+
+    .column-recipe {
+        width: 70%;
+    }
+    
+    div#content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    div.ingredients {
+        margin-top: 40px;
+        width: 25%;
+    }
+    
+    div.instructions {
+        margin-top: 40px;
+        width: 65%;
+    }
+
+    
+}
+
+
+html, body {
+    background-color: eee;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+/* -----------------General Typography----------------- */
+textarea,
+label,
+input,
+h1, h2, h3, h4,
+a, ul, li, p, td, th {
+    font-family: 'Source Sans Pro', sans-serif;
+    color:rgb(72, 94, 94);
+}
+
+h1, h2, h3, h4 {text-transform: uppercase;}
+
+h1,
+h2,
+h3 {
+    font-weight: 900;
+}
+
+h3 {
+    margin: 0;
+}
+
+p {
+    font-weight: 300;    
+}
+
+ul.nobullets {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+a.noline {
+    text-decoration: none;
+}
+
+a:hover {
+    color:rgb(108, 202, 202);
+}
+
+
+/* ------------------HEADER------------------ */
+
+
+header h1:hover,
+header a:hover {
+    color:rgb(108, 202, 202);
+}
+
+/* Navbar */
+
+
+nav a {
+    padding: 10px 16px;
+    text-transform: uppercase;
+    font-weight: 900;
+    /* color:rgb(72, 94, 94); */
+}
+
+
+
+/* ------------------MAIN CONTENT------------------ */
+.row {
+    width: 100%;
+    margin-top: 2em;
+}
+
+.container {
+    display: flex;
+}
+
+h2.title {
+    text-transform: uppercase;
+    font-size: 2em;
+    margin: 0;
+}
+
+div.story p {
+    font-style: italic;
+    font-size: 0.8em;
+}
+div.info {
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%);
+    background-color: rgba(72, 94, 94, 0.2);
+    text-align: center;
+}
+
+div.info div {    border: 2px solid rgba(72, 94, 94, 0.2); }
+div.info h4 {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 0.5em;
+}
+div.info p { 
+    margin-top: 0; 
+    margin-bottom: 0.5em;
+}
+
+
+
+div.ingredients div p {
+    margin: 0;
+}
