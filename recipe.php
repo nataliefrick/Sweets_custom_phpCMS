@@ -11,6 +11,8 @@ include("incl/header.php");
     <div class="column-recipe">
         <article>
             <h2 class="title">Cranberry & Orange Muffins</h2>
+            <div class="author">Author: Marie-France Champoux-Larsson</div>
+            <div class="date">Published: March 4, 2022</div>
             <div class="story">
                 <p>Believe it or not, the first time I had a cranberry and orange muffin was when I started working at McDonald’s in my early 20’s. Even if their version is too sweet for my palate, I immediately fell for the tartness of the cranberries combined with the sweet citrus flavour of the orange. To me, cranberry and orange muffins are the perfect autumn treat, red and orange just like the leaves in the trees.</p>
             </div>
@@ -50,8 +52,8 @@ include("incl/header.php");
                     <p>Preheat the oven to 200&#176;C.
                     <br><br>
                     In a bowl, mix the flour, baking powder and salt together. Add the dried cranberries and orange zest.<br><br>
-                    Whisk the eggs together with the coconut oli, sugar, milk, orange juice and almond extract. Gently fold in the flour mix and stir carefully until just combined.<br><br>
-                    Divide the batter in a muffin pan lined with paper liners and bake in the middle of the oven for 5 minutes. Reduce the heat to 180&#176;C amd bake until the muffins are golden brown, about 13 to 15 minutes.</p>
+                    Whisk the eggs together with the coconut oil, sugar, milk, orange juice and almond extract. Gently fold in the flour mix and stir carefully until just combined.<br><br>
+                    Divide the batter in a muffin pan lined with paper liners and bake in the middle of the oven for 5 minutes. Reduce the heat to 180&#176;C and bake until the muffins are golden brown, about 13 to 15 minutes.</p>
                 </div>
             </div>
         </article>
