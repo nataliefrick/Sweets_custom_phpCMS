@@ -3,7 +3,7 @@ $page_title = "Home";
 include("incl/header.php"); 
 ?>
 
-<div class="container" id="recipe">
+<section class="container" id="seeRecipe">
     <div class="column-photo picture">
         <img src="img/cranberry_orange_1.jpg" alt="A stack of Cranberry & Orange Muffins">
 
@@ -60,4 +60,4 @@ include("incl/header.php");
     </div>
 
 
-</div>
+</section>
