@@ -71,7 +71,7 @@ include("incl/header.php");
             // if logged in show edit button
             //    $user = new User();
             //    if($user->isLoggedIn()) { ?> <?php //}  ?> -->
-                    <a href="edit-recipe.php?id=<?= $details['id']; ?>">Edit post</a>
+                    <div id="links"><a href="edit-recipe.php?id=<?= $details['id']; ?>">Edit post</a>
                     | <span id="deletePost" onClick="confirmDelete('<?php echo $details['id']; ?>')">Delete</span>
             
                     <span class="errormsg">
@@ -81,9 +81,12 @@ include("incl/header.php");
                         }
                         unset($_SESSION['msg']);
                         ?>
-                    </span>
+                    </span></div>
         </article>
     </div>
 
 
 </section>
+
+<?php
+include("incl/footer.php");

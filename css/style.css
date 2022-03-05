@@ -472,6 +472,14 @@ div.ingredients div p {
     margin: 0;
 }
 
+.ingredients p {
+    margin: 0;
+}
+
+.ingredients p strong {
+    margin-top: 1em;
+}
+
 .publish-details {
     display: flex;
     flex-direction: row;
@@ -485,6 +493,23 @@ img.avatar {
     width: 40px;
     padding-right: 10px;
 }
+
+span#deletePost,
+#links a,
+#links p {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: rgb(238, 144, 68); 
+    margin: 0;
+    text-decoration: underline;
+    font-size: 0.9em;
+}
+
+span#deletePost:hover,
+#links a:hover,
+#links p:hover {
+    color:rgb(72, 94, 94);
+}
+
 
 /* --------------------ADMIN-------------------- */
 #admin-sidebar 

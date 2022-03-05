@@ -243,13 +243,13 @@ class Recipe {
         
     }
 
-//     // delete post
-//     public function deletePost(int $id) : bool {
-//         $id = intval($id);
+    // delete post
+    public function deleteRecipe(int $id) : bool {
+        $id = intval($id);
 
-//         $sql = "DELETE FROM blogpost WHERE id=$id;";
-//         return mysqli_query($this->db, $sql); //(send query: database connection, query)
-//     }
+        $sql = "DELETE FROM recipes WHERE id=$id;";
+        return mysqli_query($this->db, $sql); //(send query: database connection, query)
+    }
     
 //     // truncate text
 //     public function truncateText($text, $maxchar, $end='...') {

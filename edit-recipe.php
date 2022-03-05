@@ -127,7 +127,6 @@ if(isset($_GET['id'])) {
 </section>
 
 
-<script src="js/ckeditor/ckeditor.js"></script>
 <script>
     ClassicEditor
     .create( document.querySelector( '#editor-story' ) )
@@ -147,3 +146,5 @@ if(isset($_GET['id'])) {
         console.error( error );
     } );
 </script>
+<?php
+include("incl/footer.php");

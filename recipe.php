@@ -61,3 +61,5 @@ include("incl/header.php");
 
 
 </section>
+<?php
+include("incl/footer.php");

@@ -64,6 +64,5 @@ include("incl/sidebar.php");
 
 
 </section><!-- /maincontent -->
-
-<!-- <?php
-//include("incl/footer.php"); -->
+<?php
+include("incl/footer.php");

@@ -117,7 +117,7 @@ include("incl/sidebar.php");
     </section>
 </section>
 
-<script src="js/ckeditor/ckeditor.js"></script>
+
 <script>
     ClassicEditor
     .create( document.querySelector( '#editor-story' ) )
@@ -137,3 +137,5 @@ include("incl/sidebar.php");
         console.error( error );
     } );
 </script>
+<?php
+include("incl/footer.php");
