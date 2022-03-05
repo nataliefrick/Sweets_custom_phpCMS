@@ -118,24 +118,5 @@ include("incl/sidebar.php");
 </section>
 
 
-<script>
-    ClassicEditor
-    .create( document.querySelector( '#editor-story' ) )
-    .catch( error => {
-        console.error( error );
-    } );
-
-    ClassicEditor
-    .create( document.querySelector( '#editor-ingredients' ) )
-    .catch( error => {
-        console.error( error );
-    } );
-
-    ClassicEditor
-    .create( document.querySelector( '#editor-directions' ) )
-    .catch( error => {
-        console.error( error );
-    } );
-</script>
 <?php
-include("incl/footer.php");
+include("incl/footer-editor.php");
