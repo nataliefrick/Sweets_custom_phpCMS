@@ -4,6 +4,14 @@ include("incl/header.php");
 ?>
 <section id="login">
     <h2>Log in</h2>
+    <span class="errormsg">
+            <?php
+            if(isset($_SESSION['msg'])) {
+                echo $_SESSION['msg'];
+            }
+            unset($_SESSION['msg']);
+            ?>
+        </span>
     <form method="POST">
         
         <label for="username">Username</label>
@@ -17,14 +25,6 @@ include("incl/header.php");
         <br>
         <input class="btn" type="submit" formaction="login-handler.php" value="Log in">
         <input class="btn" type="submit" formaction="register-handler.php" value="Register">
-        <span class="errormsg">
-            <?php
-            if(isset($_SESSION['msg'])) {
-                echo $_SESSION['msg'];
-            }
-            unset($_SESSION['msg']);
-            ?>
-        </span>
     </form>
 
 </section><!-- /maincontent -->

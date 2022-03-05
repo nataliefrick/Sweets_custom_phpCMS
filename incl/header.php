@@ -21,7 +21,18 @@ include_once("incl/config.php");
     <title><?= $page_title . $divider . $site_title; ?></title>
 </head>
 <body>
+    <?php
+        $user = new User();
+        if($user->isLoggedIn()) {    ?>
+            <section id="toolbar">
+                <ul class="nobullets flex end">
+                <li class="welcomemsg">Welcome, <?= ucwords($_SESSION['username']) ?></li>
+                <li><a href="logout.php">Logout</a></li>
+                <li><a href="admin.php">Admin</a></li></ul>
+            </section>
+    <?php } ?>
     <header> 
+
     <a class="noline" href="index.php"><h1>SWEETS</h1></a>
         <?php include("incl/navbar.php"); ?>
     </header>

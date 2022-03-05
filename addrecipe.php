@@ -1,8 +1,8 @@
 <?php 
 include_once("incl/config.php"); 
 // check to see if user is logged in
-//$user = new User();
-//$user->restrictPage();
+$user = new User();
+$user->restrictPage();
 
 if(!isset($_POST['title'])) // if a title is not found
 {

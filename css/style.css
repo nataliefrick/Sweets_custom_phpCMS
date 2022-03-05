@@ -561,6 +561,10 @@ form {
     flex-direction: row;
 }
 
+.end {
+    justify-content: flex-end;
+}
+
 .column-50 {
     width: 50%;
     margin: 0 auto;
@@ -674,5 +678,26 @@ nav a:hover {
     margin: 0 auto;
 }
 
+#toolbar {
+    background-color:rgb(221, 142, 105);
+    color:rgb(72, 94, 94);
+    line-height: 1.5em;
+    padding-right: 2em;
+}
 
+.welcomemsg {
+    font-weight: bold;
+}
 
+#toolbar li {
+    padding: 0 10px;
+}
+
+#toolbar a {
+    color:rgb(72, 94, 94);
+    font-weight: bold;
+}
+
+#toolbar a:hover {
+    color:rgb(255, 241, 234);
+}
