@@ -3,16 +3,32 @@ include_once("incl/config.php");
 // check to see if user is logged in
 //$user = new User();
 //$user->restrictPage();
-$title = "";
-$author = "";
-$story = "";
-$yield = "";
-$prepT = "";
-$cookT = "";
-$ingredients = "";
-$directions = "";
-$imgLink = "";
-$imgAlt = "";
+
+if(!isset($_POST['title'])) // if a title is not found
+{
+    $title = "";
+    $author = "";
+    $story = "";
+    $yield = "";
+    $prepT = "";
+    $cookT = "";
+    $ingredients = "";
+    $directions = "";
+    $imgLink = "";
+    $imgAlt = "";
+} else {
+    $title = $_POST['title'];
+    $author = $_POST['author'];
+    $story = $_POST['story'];
+    $yield = $_POST['yield'];
+    $prepT = $_POST['prepT'];
+    $cookT = $_POST['cookT'];
+    $ingredients = $_POST['ingredients'];
+    $directions = $_POST['directions'];
+    $imgLink = $_POST['imgLink'];
+    $imgAlt = $_POST['imgAlt'];
+    $category = $_POST['category'];
+}
 
 $page_title = "Add a recipe";
 include("incl/header.php"); 
@@ -25,110 +41,22 @@ include("incl/header.php");
 <?php
 //$author = $_SESSION['username'];
 // check to see if form has been submitted
-if(isset($_POST['title'])) {
-    $title = $_POST['title'];
-    $author = $_POST['author'];
-    $story = $_POST['story'];
-    $yield = $_POST['yield'];
-    $prepT = $_POST['prepT'];
-    $cookT = $_POST['cookT'];
-    $ingredients = $_POST['ingredients'];
-    $directions = $_POST['directions'];
-    $imgLink = $_POST['imgLink'];
-    $imgAlt = $_POST['imgAlt'];
-    $category = $_POST['category'];
-
-    $recipe = new Recipe;
-
-    $success = true; // if all posted is ok
-
-    $message = "";
-
-    // check to see if form is filled correctly
-    if(!$recipe->setTitle($title)) {
-        $success = false;
-        $message .= "Please give the recipe a title.";
-    }
-
-    if(!$recipe->setAuthor($author)) {
-        $success = false;
-        $message .= "Please choose an author.";
-    }
-
-    if(!$recipe->setCategory($category)) {
-        $success = false;
-        $message .= "Please choose a category.";
-    }
-
-    if(!$recipe->setYield($yield)) {
-        $success = false;
-        $message .= "Please specify yield.";
-    }
-
-    if(!$recipe->setPrep($prepT)) {
-        $success = false;
-        $message .= "Please specify prep time.";
-    }
-
-    if(!$recipe->setCook($cookT)) {
-        $success = false;
-        $message .= "Please specify cook time.";
-    }
-
-    if(!$recipe->setStory($story)) {
-        $success = false;
-        $message .= "Please give the recipe a background story.";
-    }
-
-    if(!$recipe->setIngredients($ingredients)) {
-        $success = false;
-        $message .= "Please list the ingredients.";
-    }
-
-    if(!$recipe->setDirections($directions)) {
-        $success = false;
-        $message .= "Please write out the directions.";
-    }
-
-    if(!$recipe->setImgLink($imgLink)) {
-        $success = false;
-        $message .= "Please specify image.";
-    }
-
-    if(!$recipe->setImgAlt($imgAlt)) {
-        $success = false;
-        $message .= "Please specify alt text to the image.";
-    }
-
-    // if form is filled correctly, Success! Add post
-    if($success) {
-        if($recipe->addRecipe()) {
-            $message .= "Great! Your recipe has been added!";
-            //header("Location: admin.php?message=$message");
-        } else {
-            $message .= "Error when adding recipe!";
-        }
-    //                
-    //} else {
-    //    $message .= "The post has not been created. Try again!";
-    } 
-    
-}
 
 
 ?>
 
 <h3>Add a Recipe</h3>
 
-<?php
-    if(isset($message)) {
-        echo "<p class='message'>";
-        echo $message;
-        echo "</p>";
-    } 
-?>
+<span class="errormsg">
+    <?php
+    if(isset($_SESSION['msg'])) {
+        echo $_SESSION['msg'];
+    }
+    unset($_SESSION['msg']);
+    ?>
+</span>
 
-<form method="POST">
+<form method="POST" action="addrecipe-handler.php" >
     <div class="column-50 float-left">
     <label for="title">Title:</label><br>
     <input type="text" name="title" id="title" value="<?= $title ?>"><br>
@@ -169,10 +97,15 @@ if(isset($_POST['title'])) {
     <textarea name="directions" id="directions"><?= $directions ?></textarea>
     <br>
     <br>
-    <label for="imgLink">Upload image:</label><br>
+    <label for="imgLink">Photo filename:</label><br>
     <input type="text" name="imgLink" id="imgLink" value="<?= $imgLink ?>"><br>
-    <label for="imgAlt">Image Alt-text:</label><br>
+    <label for="imgAlt">Photo Alt-text:</label><br>
     <input type="text" name="imgAlt" id="imgAlt" value="<?= $imgAlt ?>"><br>
     <input id="submit" type="submit" value="Create">
 
+</form>
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
 </form>
