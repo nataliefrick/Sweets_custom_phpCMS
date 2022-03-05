@@ -296,6 +296,12 @@ a, ul, li, p, td, th {
     color:rgb(72, 94, 94);
 }
 
+.errormsg {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color:rgb(255, 194, 145);
+}
+
+
 h1, h2, h3, h4 {text-transform: uppercase;}
 
 h1,
@@ -477,3 +483,4 @@ textarea {
     border: 1px solid rgba(72, 94, 94, 0.2);
     background-color: rgba(72, 94, 94, 0.1);
 }
+

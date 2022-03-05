@@ -31,9 +31,10 @@
         define("DBPASS", "sweets");
         define("DBDATABASE", "sweets");
     } else {
-        // database settings - published  ---->> change to false devmode!!!!
-        //define("DBHOST", "localhost");
-        //define("DBUSER", "nataliesal_blogdb");
-        //define("DBPASS", "an5Y!Pth4866");
-        //define("DBDATABASE", "nataliesal_blogdb");
+        // database settings - published  ---->> change to false/true devmode!!!!
+        define("DBHOST", "localhost");
+        define("DBUSER", "nataliesal_sweets");
+        define("DBPASS", "MIUNsweets2022");
+        define("DBDATABASE", "nataliesal_sweets");
     }
+    
