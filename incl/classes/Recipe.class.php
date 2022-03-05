@@ -198,41 +198,50 @@ class Recipe {
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 
-    // // get specific blogpost from ID
-    // public function getPostByID(int $id) : array {
-    //     $id = intval($id);
-    //     $sql = "SELECT
-    //     id,
-    //     title,
-    //     author,
-    //     articleText,
-    //     imglink,
-    //     DATE_FORMAT(created, '%D %b %Y') AS created        
-    //     FROM blogpost WHERE id=$id;";
-    //     $result = mysqli_query($this->db, $sql);
-    //     return $result->fetch_assoc();
-    // }
+    // get specific blogpost from ID
+    public function getRecipeById(int $id) : array {
+        $id = intval($id);
+        $sql = "SELECT
+        id,
+        title,
+        author,
+        category,
+        yield,
+        prepTime,
+        cookTime,
+        story,
+        ingredients,
+        directions,
+        imgLink,
+        imgAlt,
+        DATE_FORMAT(created, '%b %D, %Y') AS published        
+        FROM recipes WHERE id=$id;";
+        $result = mysqli_query($this->db, $sql);
+        return $result->fetch_assoc();
+    }
 
-//     public function updatePost(int $id) : bool {
-//         // check with set methods
-//         // if(!$this->setTitle($title)) return false;
-//         // if(!$this->setAuthor($author)) return false;
-//         // if(!$this->setArticle($articleText)) return false;
-//         // if(!$this->setImgLink($imglink)) return false;
-
-//         $sql = "
+   public function updateRecipe(int $id) : bool {
+        $sql = "
         
-//         UPDATE blogpost 
-//         SET 
-//             title='" . $this->title . "', 
-//             author='" . $this->author . "', 
-//             articleText='" . $this->articleText . "', 
-//             imglink='" . $this->imglink . "' WHERE id=" . $id . "; ";
-//         // echo "<pre>" . $sql . "</pre>";
+        UPDATE recipes 
+        SET 
+            title='" . $this->title . "', 
+            author='" . $this->author . "', 
+            category='" . $this->category . "', 
+            yield='" . $this->yield . "', 
+            prepTime='" . $this->prepT . "', 
+            cookTime='" . $this->cookT . "', 
+            story='" . $this->story . "', 
+            ingredients='" . $this->ingredients . "', 
+            directions='" . $this->directions . "', 
+            imgLink='" . $this->imgLink . "', 
+            imgAlt='" . $this->imgAlt . "'
+        WHERE id=" . $id . "; ";
+        // echo "<pre>" . $sql . "</pre>";
 
-//         return mysqli_query($this->db, $sql); //(send query: database connection, query)
+        return mysqli_query($this->db, $sql); //(send query: database connection, query)
         
-//     }
+    }
 
 //     // delete post
 //     public function deletePost(int $id) : bool {
