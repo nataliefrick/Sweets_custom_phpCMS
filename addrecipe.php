@@ -14,7 +14,9 @@ if(!isset($_POST['title'])) // if a title is not found
     $cookT = "";
     $ingredients = "";
     $directions = "";
-    $imgLink = "";
+    if (!isset($_SESSION['filename'])) // if a file name is not registered
+        { $imgLink = ""; }
+    else { $imgLink = $_SESSION['filename']; }
     $imgAlt = "";
 } else {
     $title = $_POST['title'];
@@ -25,7 +27,9 @@ if(!isset($_POST['title'])) // if a title is not found
     $cookT = $_POST['cookT'];
     $ingredients = $_POST['ingredients'];
     $directions = $_POST['directions'];
-    $imgLink = $_POST['imgLink'];
+    if (!isset($_SESSION['filename'])) // if a file name is not registered
+        { $imgLink = $_POST['imgLink']; }
+    else { $imgLink = $_SESSION['filename']; }
     $imgAlt = $_POST['imgAlt'];
     $category = $_POST['category'];
 }
@@ -38,13 +42,6 @@ include("incl/header.php");
 ?>
 <section class="container" id="addRecipe">
 
-<?php
-//$author = $_SESSION['username'];
-// check to see if form has been submitted
-
-
-?>
-
 <h3>Add a Recipe</h3>
 
 <span class="errormsg">
@@ -55,7 +52,15 @@ include("incl/header.php");
     unset($_SESSION['msg']);
     ?>
 </span>
+<p>Step 1: upload a feature image</p>
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    <label for="fileToUpload">Select image to upload:</label>
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit" id="fileupload">
+    
+</form>
 
+<p>Step 2: add content</p>
 <form method="POST" action="addrecipe-handler.php" >
     <div class="column-50 float-left">
     <label for="title">Title:</label><br>
@@ -103,9 +108,4 @@ include("incl/header.php");
     <input type="text" name="imgAlt" id="imgAlt" value="<?= $imgAlt ?>"><br>
     <input id="submit" type="submit" value="Create">
 
-</form>
-<form action="upload.php" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
 </form>
