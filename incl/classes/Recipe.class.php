@@ -108,9 +108,9 @@ class Recipe {
         }
     }
       
-    public function setImgLink(string $imglink) : bool {
-        if($imglink!= "") {
-            $this->imglink = $imglink;
+    public function setImgLink(string $imgLink) : bool {
+        if($imgLink!= "") {
+            $this->imgLink = $imgLink;
             return true;
         } else {
             return false;

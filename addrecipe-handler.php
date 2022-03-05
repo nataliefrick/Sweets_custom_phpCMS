@@ -12,7 +12,9 @@ if(!isset($_POST['title'])) // if a title is not found
     $cookT = $_POST['cookT'];
     $ingredients = $_POST['ingredients'];
     $directions = $_POST['directions'];
-    $imgLink = $_POST['imgLink'];
+    if (!isset($_SESSION['filename'])) // if a file name is not registered
+        { $imgLink = $_POST['imgLink']; }
+    else { $imgLink = $_SESSION['filename']; }
     $imgAlt = $_POST['imgAlt'];
     $category = $_POST['category'];
 }
@@ -82,7 +84,7 @@ if(!$recipe->setImgLink($imgLink)) {
     $success = false;
     $_SESSION['msg'] .= "Please specify image.";
     header("Location: addrecipe.php"); // load addrecipe.php
-}
+} else // { $_SESSION['msg'] .= $imgLink; }
 
 if(!$recipe->setImgAlt($imgAlt)) {
     $success = false;
