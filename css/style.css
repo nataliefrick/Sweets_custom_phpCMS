@@ -534,6 +534,7 @@ textarea {
 
 #sidebar a:hover,
 nav a:hover {
+    font-weight: bold;
     background-color:rgb(72, 94, 94);
     color:rgb(221, 142, 105);
 }

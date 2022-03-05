@@ -58,8 +58,8 @@ CREATE TABLE recipes (
 
 // send query to server
 if($db->multi_query($sql)) {
-    echo "The table is installed.";
-    //header("Location: admin.php");
+    $_SESSION['msg'] .= "The database has been reset.";
+    header("Location: addrecipe.php");
 } else {
     echo "Error with table installation.";
 }
