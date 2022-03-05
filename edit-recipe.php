@@ -49,7 +49,7 @@ if(isset($_GET['id'])) {
 
     <section class="container" id="addRecipe">
 
-        <h3>Edit Recipe</h3>
+        <h3>Edit Recipe - <?= $details['title'] ?></h3>
 
         <span class="errormsg">
             <?php

@@ -3,8 +3,8 @@
 
 include_once("incl/config.php"); 
 // check to see if user is logged in
-$user = new User();
-$user->restrictPage();
+// $user = new User();
+// $user->restrictPage();
 
 // connect to database
 $db = new mysqli(DBHOST, DBUSER, DBPASS, DBDATABASE);
@@ -43,9 +43,11 @@ CREATE TABLE recipes (
 // username & password: admin/admin
 $sql .= "INSERT INTO user(username, password)VALUES('admin', '$2y$10$0NOXKqaNb21x38q2V/i3RuZx.AFmDRxsG0WvMEiKuXTCnFAUMZm9i');";
 
+// INSERT INTO recipes 
+// (id, title, author, category, yield, prepTime, cookTime, story, ingredients, directions, imgLink, imgAlt, created) 
 $sql .= "
-    INSERT INTO recipes 
-        (id, title, author, category, yield, prepTime, cookTime, story, ingredients, directions, imgLink, imgAlt, created) 
+    INSERT INTO `recipes` 
+        (`id`, `title`, `author`, `category`, `yield`, `prepTime`, `cookTime`, `story`, `ingredients`, `directions`, `imgLink`, `imgAlt`, `created`)
     VALUES
         (1, 'Cranberry & Orange Muffins', 'MFCL', 'cupcakes&muffins', '12 muffins', '15 minutes', '20 minutes', '<p>Believe it or not, the first time I had a cranberry and orange muffin was when I started working at McDonald’s in my early 20’s. Even if their version is too sweet for my palate, I immediately fell for the tartness of the cranberries combined with the sweet citrus flavour of the orange. To me, cranberry and orange muffins are the perfect autumn treat, red and orange just like the leaves in the trees.</p>', '<p>&nbsp;</p><p>350g flour&nbsp;</p><p>20g baking powder&nbsp;</p><p>6g salt&nbsp;</p><p>225g dried cranberries&nbsp;</p><p>zest of 1 orange&nbsp;</p><p>2 large eggs&nbsp;</p><p>110g coconut oil&nbsp;</p><p>200g sugar&nbsp;</p><p>100g milk&nbsp;</p><p>100g orange juice&nbsp;</p><p>4g almond extract</p>', '<p>Preheat the oven to 200°C.&nbsp;</p><p>In a bowl, mix the flour, baking powder and salt together. Add the dried cranberries and orange zest.&nbsp;</p><p>Whisk the eggs together with the coconut oil, sugar, milk, orange juice and almond extract in a separate bowl. Gently fold in the flour mix and stir carefully until just combined.&nbsp;</p><p>Divide the batter in a muffin pan lined with paper liners and bake in the middle of the oven for 5 minutes. Reduce the heat to 180°C and bake until the muffins are golden brown, about 13 to 15 minutes.</p>', 'img/20170314-Cranberry Orange Muffins-234.jpg', 'A stack of cranberry and orange muffins on a white plate.', '2022-03-05 10:21:56'),
         (2, 'Rice Pudding', 'MFCL', 'pudding', '6-8 servings', '1.5 hours', '-', '<p>I love rice and rice pudding is one of the first desserts I cooked on my own. I know it may look a bit funky and perhaps not at all appetizing, but one spoonful of this creamy, silky pudding and you will right away forget its funny appearance.</p>', '<p>140g short grained rice*&nbsp;</p><p>200g water&nbsp;</p><p>400g milk&nbsp;</p><p>10g butter&nbsp;</p><p>60g sugar&nbsp;</p><p>a pinch of salt&nbsp;</p><p>1 egg&nbsp;</p><p>40g raisons&nbsp;</p><p>30g rum&nbsp;</p><p>2g vanilla essence&nbsp;</p><p>cinnamon&nbsp;</p><p>&nbsp;</p><p>*long-grain rice will work, but the results will not be as creamy</p>', '<p>Soak the raisons in the rum for about 1 hour.&nbsp;</p><p>In a large saucepan, mix the rice, water, milk, butter and sugar. &nbsp;Cook on low heat, stirring constantly until a creamy consistency is obtained, about 20 minutes.&nbsp;</p><p>Beat the egg. Temper it but adding a tablespoon or so of the warm pudding to the egg mixture, all the while continuing to beat the mixture. This slightly warms up the egg mixture preparing it so that it will not start to cook when added to the warm contents.&nbsp;</p><p>Add the egg mixture and raisons with rum to the pudding and cook for another 5 minutes, stirring constantly. Remove the mixture from the heat, add in the vanilla and stir.&nbsp;</p><p>Divided the pudding into individual serving dishes and sprinkle on ground cinnamon before serving.</p>', 'img/171016-Rice Pudding-05.jpg', 'Rice pudding served in a delicate tea cup with blue print. Served with a cinnamon stick.', '2022-03-05 10:34:44'),
@@ -57,6 +59,7 @@ $sql .= "
 
 // send query to server
 if($db->multi_query($sql)) {
+    //echo "The database has been reset.";
     $_SESSION['msg'] .= "The database has been reset.";
     header("Location: admin.php");
 } else {
