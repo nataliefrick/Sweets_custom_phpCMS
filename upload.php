@@ -49,7 +49,7 @@ if(isset($_POST["submit"])) {
       // if everything is ok, try to upload file
       } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-          $_SESSION['msg'] .= " The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+          $_SESSION['msg'] .= " The file <em>". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). "</em> has been uploaded.";
           $_SESSION['filename'] = $target_file; // send back file name to link in db
           header("Location: addrecipe.php"); // load addrecipe.php
         } else {
