@@ -34,17 +34,17 @@ include("incl/header.php");
                 <div class="ingredients">
                     <h3>Ingredients</h3>
                     <p>
-                        350g flour<br>
-                        20g baking powder<br>
-                        6g salt<br>
-                        225g dried cranberries<br>
-                        zest of 1 orange<br>
-                        2 large eggs<br>
-                        110g coconut oil<br>
-                        200g sugar<br>
-                        100g milk<br>
-                        100g orange juice<br>
-                        4g almond extract<br>
+                    350g flour<br>
+                    20g baking powder<br>
+                    6g salt<br>
+                    225g dried cranberries<br>
+                    zest of 1 orange<br>
+                    2 large eggs<br>
+                    110g coconut oil<br>
+                    200g sugar<br>
+                    100g milk<br>
+                    100g orange juice<br>
+                    4g almond extract<br>
                     </p>
                 </div>
                 <div class="instructions">

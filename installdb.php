@@ -24,15 +24,16 @@ CREATE TABLE recipes (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(128) NOT NULL,
     author VARCHAR(50) NOT NULL,
-    created timestamp NOT NULL DEFAULT current_timestamp()
-    story TEXT NOT NULL,
+    category VARCHAR(50) NOT NULL,
     yield VARCHAR(50),
     prepTime VARCHAR(50),
     cookTime VARCHAR(50),
+    story TEXT NOT NULL,
     ingredients TEXT NOT NULL,
-    instructions TEXT NOT NULL,
-    imglink VARCHAR(200),
-    imgAlt VARCHAR(200)
+    directions TEXT NOT NULL,
+    imgLink CHAR(200) NOT NULL,
+    imgAlt VARCHAR(200) NOT NULL,
+    created timestamp NOT NULL DEFAULT current_timestamp()
 );";
 
 // username & password: admin/admin
@@ -46,9 +47,10 @@ CREATE TABLE recipes (
 //    prepTime,
 //    cookTime,
 //    ingredients,
-//    instructions,
+//    directions,
 //    imglink,
-//    imgAlt)
+//    imgAlt,
+//    category)
 //VALUES
 //    ();";
 
