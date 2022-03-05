@@ -72,7 +72,7 @@ include("incl/header.php");
             //    $user = new User();
             //    if($user->isLoggedIn()) { ?> <?php //}  ?> -->
                     <div id="links"><a href="edit-recipe.php?id=<?= $details['id']; ?>">Edit post</a>
-                    | <span id="deletePost" onClick="confirmDelete('<?php echo $details['id']; ?>')">Delete</span>
+                    <span id="deletePost" onClick="confirmDelete('<?php echo $details['id']; ?>')">Delete post</span>
             
                     <span class="errormsg">
                         <?php

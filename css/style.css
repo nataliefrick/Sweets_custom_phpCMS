@@ -324,6 +324,8 @@ td.centered {
     text-align: center;
 }
 
+
+/* ----------------BUTTONS & HOVERING---------------- */
 td.btn {
     background-color:rgb(255, 204, 181);
     border-radius: 6px;
@@ -340,11 +342,41 @@ td.btn a {
 
 td.btn a:hover { color: rgb(238, 144, 68);  }
 td.btn:hover {
-    background-color:rgba(72, 94, 94, 0.1);
-    color: rgb(238, 144, 68); 
+    background-color:rgb(72, 94, 94);
+    border: 2px solid rgb(72, 94, 94);
+    color: rgb(238, 144, 68);  
 }
 
 tr:hover {background-color: rgba(72, 94, 94, 0.1);}
+
+span#deletePost,
+#links a,
+#links p,
+input.btn {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 200;
+    background-color:rgb(255, 204, 181);
+    padding: 5px;
+    width: 80px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color:rgb(72, 94, 94);
+    border: 2px solid rgb(255, 204, 181);
+}
+
+span#deletePost:hover,
+#links a:hover,
+#links p:hover,
+input.btn:hover {
+    background-color:rgb(72, 94, 94);
+    border: 2px solid rgb(72, 94, 94);
+    color: rgb(238, 144, 68); 
+}
+
+#links {
+    margin-top: 1em;
+}
 
 .errormsg {
     font-family: 'Source Sans Pro', sans-serif;
@@ -494,21 +526,7 @@ img.avatar {
     padding-right: 10px;
 }
 
-span#deletePost,
-#links a,
-#links p {
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: rgb(238, 144, 68); 
-    margin: 0;
-    text-decoration: underline;
-    font-size: 0.9em;
-}
 
-span#deletePost:hover,
-#links a:hover,
-#links p:hover {
-    color:rgb(72, 94, 94);
-}
 
 
 /* --------------------ADMIN-------------------- */
@@ -649,4 +667,12 @@ nav a:hover {
     /* border-left: solid 1px rgba(167, 211, 211, 0.4); */
     padding-left: 2em;
 }
+
+/* ---------------LOGIN--------------- */
+#login {
+    width: 300px;
+    margin: 0 auto;
+}
+
+
 
