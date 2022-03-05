@@ -126,7 +126,6 @@ class Recipe {
         }
     }
     
-
     public function addRecipe() : bool {
         $sql = "
         INSERT INTO recipes 
@@ -182,20 +181,22 @@ class Recipe {
     //     $result = mysqli_query($this->db, $sql); //(send query: database connection, query)
     //     return mysqli_fetch_all($result, MYSQLI_ASSOC);
     // }
+    
+    public function getRecipeListAdmin() : array {
+        //SQL Query
+        $sql = "SELECT
+        id,
+        title,
+        author,
+        category,
+        imgLink,
+        imgAlt,
+        DATE_FORMAT(created, '%e-%c-%Y  %H:%i %p' ) AS published        
+        FROM recipes ORDER BY created desc;";
 
-    // public function getPostsAdmin() : array {
-    //     //SQL Query
-    //     $sql = "SELECT
-    //     id,
-    //     title,
-    //     author,
-    //     imglink,
-    //     DATE_FORMAT(created, '%e-%c-%Y  %H:%i %p' ) AS created        
-    //     FROM blogpost ORDER BY created desc;";
-
-    //     $result = mysqli_query($this->db, $sql); //(send query: database connection, query)
-    //     return mysqli_fetch_all($result, MYSQLI_ASSOC);
-    // }
+        $result = mysqli_query($this->db, $sql); //(send query: database connection, query)
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
 
     // // get specific blogpost from ID
     // public function getPostByID(int $id) : array {
