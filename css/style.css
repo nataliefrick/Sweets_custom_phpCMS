@@ -513,6 +513,11 @@ form {
 
 }
 
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
 .column-50 {
     width: 50%;
     margin: 0 auto;
@@ -526,22 +531,28 @@ form {
     float: left;
 }
 
+.top-spacer {
+    margin-top: 5px;
+} 
+
 input {
     margin: 5px auto;
     padding: 4px 5px;
     width: 90%;
     border: 0;
     line-height: 1.5em;
-    border-bottom: 2px solid rgba(72, 94, 94, 0.2);
-    background-color: rgba(72, 94, 94, 0.1);
+    border-radius: 3px;
+    border: 2px solid #d8d8d8;
+    background-color: rgb(255 255 255);
 }
 
 select {
     margin: 5px auto;
     padding: 4px 5px;
     width: 93%;
-    border-bottom: 1px solid rgba(72, 94, 94, 0.2);
-    background-color: rgba(72, 94, 94, 0.1);
+    border-radius: 3px;
+    border: 2px solid #d8d8d8;
+    background-color: rgb(255 255 255);
 }
 
 #reset,

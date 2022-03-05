@@ -63,44 +63,46 @@ include("incl/sidebar.php");
 
         <p>Step 2: add content</p>
         <form method="POST">
-            <div class="column-50 float-left">
-            <label for="title">Title:</label><br>
-            <input type="text" name="title" id="title" value="<?= $title ?>"><br>
-            <label for="author">Author:</label><br>
-            <select id="author" name="author" value="<?= $author ?>">
-                <option value=""></option>
-                <option value="MFCL">Marie-France Champoux-Larsson</option>
-                <option value="NSF">Natalie Salomons Frick</option>
-            </select>
-            <label for="category">Category:</label><br>
-            <select id="category" name="category" value="<?= $category ?>">
-                <option value=""></option>
-                <option value="cakes">Cakes</option>
-                <option value="cupcakes&muffins">Cupcakes & Muffins</option>
-                <option value="pies & tarts">Pies & Tarts</option>
-                <option value="baked custard">Baked Custard</option>
-                <option value="pudding">Pudding</option>
-                <option value="cookies & bars">Cookies & Bars</option>
-                <option value="breads & loafs">Breads & Loafs</option>
-                <option value="sweets & desserts">Sweets & Desserts</option>
-            </select>
+            <div class="flex">
+                <div class="column-50">
+                <label for="title">Title:</label><br>
+                <input type="text" name="title" id="title" value="<?= $title ?>"><br>
+                <label for="author">Author:</label><br>
+                <select id="author" name="author" value="<?= $author ?>">
+                    <option value=""></option>
+                    <option value="MFCL">Marie-France Champoux-Larsson</option>
+                    <option value="NSF">Natalie Salomons Frick</option>
+                </select>
+                <label for="category">Category:</label><br>
+                <select id="category" name="category" value="<?= $category ?>">
+                    <option value=""></option>
+                    <option value="cakes">Cakes</option>
+                    <option value="cupcakes&muffins">Cupcakes & Muffins</option>
+                    <option value="pies & tarts">Pies & Tarts</option>
+                    <option value="baked custard">Baked Custard</option>
+                    <option value="pudding">Pudding</option>
+                    <option value="cookies & bars">Cookies & Bars</option>
+                    <option value="breads & loafs">Breads & Loafs</option>
+                    <option value="sweets & desserts">Sweets & Desserts</option>
+                </select>
+                </div>
+                <div class="column-50">
+                <label for="yield">Recipe yield:</label>
+                <input type="text" name="yield" id="yield" value="<?= $yield ?>"><br>
+                <label for="prepT">Prep Time:</label>
+                <input type="text" name="prepT" id="prepT" value="<?= $prepT ?>"><br>
+                <label for="cookT">Cook Time:</label>
+                <input type="text" name="cookT" id="cookT" value="<?= $cookT ?>"><br>
+                </div>
             </div>
-            <div class="column-50 float-left">
-            <label for="yield">Recipe yield:</label>
-            <input type="text" name="yield" id="yield" value="<?= $yield ?>"><br>
-            <label for="prepT">Prep Time:</label>
-            <input type="text" name="prepT" id="prepT" value="<?= $prepT ?>"><br>
-            <label for="cookT">Cook Time:</label>
-            <input type="text" name="cookT" id="cookT" value="<?= $cookT ?>"><br>
-            </div>
-            <label for="story">Story:</label><br>
-            <textarea name="story" id="story"><?= $story ?></textarea>
+            <label class="top-spacer" for="story">Story:</label><br>
+            <textarea name="story" id="editor-story"><?= $story ?></textarea>
             <br>
             <label for="ingredients">Ingredients:</label><br>
-            <textarea name="ingredients" id="ingredients"><?= $ingredients ?></textarea>
+            <textarea name="ingredients" id="editor-ingredients"><?= $ingredients ?></textarea>
             <br>
             <label for="directions">Directions:</label><br>
-            <textarea name="directions" id="directions"><?= $directions ?></textarea>
+            <textarea name="directions" id="editor-directions"><?= $directions ?></textarea>
             <br>
             <br>
             <label for="imgLink">Photo filename:</label><br>
@@ -114,3 +116,24 @@ include("incl/sidebar.php");
 
     </section>
 </section>
+
+<script src="js/ckeditor/ckeditor.js"></script>
+<script>
+    ClassicEditor
+    .create( document.querySelector( '#editor-story' ) )
+    .catch( error => {
+        console.error( error );
+    } );
+
+    ClassicEditor
+    .create( document.querySelector( '#editor-ingredients' ) )
+    .catch( error => {
+        console.error( error );
+    } );
+
+    ClassicEditor
+    .create( document.querySelector( '#editor-directions' ) )
+    .catch( error => {
+        console.error( error );
+    } );
+</script>
