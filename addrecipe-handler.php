@@ -93,7 +93,7 @@ if(!$recipe->setImgAlt($imgAlt)) {
 // if form is filled correctly, Success! Add post
 if($success) {
     if($recipe->addRecipe()) {
-        $_SESSION['msg'] .= "Great! Your recipe has been added!";
+        $_SESSION['msg'] .= "Successful add of recipe.";
         header("Location: addrecipe.php"); // load addrecipe.php
         //header("Location: admin.php?message=$message");
     } else {

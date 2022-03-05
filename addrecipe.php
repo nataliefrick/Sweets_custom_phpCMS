@@ -61,7 +61,7 @@ include("incl/header.php");
 </form>
 
 <p>Step 2: add content</p>
-<form method="POST" action="addrecipe-handler.php" >
+<form method="POST">
     <div class="column-50 float-left">
     <label for="title">Title:</label><br>
     <input type="text" name="title" id="title" value="<?= $title ?>"><br>
@@ -106,6 +106,7 @@ include("incl/header.php");
     <input type="text" name="imgLink" id="imgLink" value="<?= $imgLink ?>"><br>
     <label for="imgAlt">Photo Alt-text:</label><br>
     <input type="text" name="imgAlt" id="imgAlt" value="<?= $imgAlt ?>"><br>
-    <input id="submit" type="submit" value="Create">
+    <input id="submit" type="submit" value="Create" formaction="addrecipe-handler.php">
+    <input id="reset" type="submit" value="Reset" formaction="addrecipe-reset.php" >
 
 </form>
