@@ -40,7 +40,7 @@ $recipes = $recipe->getLatestRecipes();
                         </div>
                         <img class="avatar" src="<?= $avatar; ?>" alt="avatar of <?= $author; ?>">
                     </div>
-                    
+
                     <a class="read-more u-link" href="show-recipe.php?id=<?= $r['id']; ?>"><br>See Recipe</a>
                 </div>
             </a>

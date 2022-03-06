@@ -557,6 +557,13 @@ img.avatar {
     flex-direction: column;
 }
 
+.teaser a h2 {
+    font-size: 1em;
+}
+
+.teaser a p {
+    font-size: 0.8em;
+}
 
 
 /* --------------------ADMIN-------------------- */
@@ -762,8 +769,8 @@ nav a:hover {
 }
 
 .new-recipe-card {
-    width: 600px;
-    height: 350px;
+    width: 500px;
+    height: 300px;
     border: 1px solid rgba(72, 94, 94, 0.1);
     display: flex;
     flex-direction: row;
@@ -798,7 +805,7 @@ a.read-more {
     margin: 0 auto;
     justify-content: center!important;
     color: rgb(221, 142, 105);
-    font-size: 0.9em;
+    font-size: 0.8em;
 }
 
 teaser.read-more {
