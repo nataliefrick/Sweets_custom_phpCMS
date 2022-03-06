@@ -1,5 +1,4 @@
 <?php 
-$page_title = "Home";
 include_once("incl/config.php"); 
 
 if(isset($_GET['id'])) {
@@ -19,6 +18,7 @@ if(isset($_GET['id'])) {
 } else {
     header("Location: index.php");
 }
+
 $page_title = $details['title'];
 include("incl/header.php"); 
 
@@ -62,7 +62,7 @@ include("incl/header.php");
                     <p><?= $details['ingredients']; ?></p>
                 </div>
                 <div class="instructions">
-                    <h3>Instructions</h3>
+                    <h3>Directions</h3>
                     <p><?= $details['directions']; ?></p>
                 </div>
             </div>

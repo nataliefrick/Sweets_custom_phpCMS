@@ -167,20 +167,21 @@ class Recipe {
     
     
     // get methods
-    // public function getPosts() : array {
-    //     //SQL Query
-    //     $sql = "SELECT
-    //     id,
-    //     title,
-    //     author,
-    //     articleText,
-    //     imglink,
-    //     DATE_FORMAT(created, '%a, %D %b %Y ') AS created       
-    //     FROM blogpost ORDER BY created desc;";
+    public function getAllRecipes() : array {
+        //SQL Query
+        $sql = "SELECT
+            id,
+            title,
+            category,
+            story,
+            imgLink,
+            imgAlt,     
+            DATE_FORMAT(created, '%b %D, %Y') AS published   
+        FROM recipes ORDER BY created desc;";  
 
-    //     $result = mysqli_query($this->db, $sql); //(send query: database connection, query)
-    //     return mysqli_fetch_all($result, MYSQLI_ASSOC);
-    // }
+        $result = mysqli_query($this->db, $sql); //(send query: database connection, query)
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
     
     public function getRecipeListAdmin() : array {
         //SQL Query
@@ -237,7 +238,7 @@ class Recipe {
             imgLink='" . $this->imgLink . "', 
             imgAlt='" . $this->imgAlt . "'
         WHERE id=" . $id . "; ";
-        // echo "<pre>" . $sql . "</pre>";
+
 
         return mysqli_query($this->db, $sql); //(send query: database connection, query)
         
@@ -251,29 +252,29 @@ class Recipe {
         return mysqli_query($this->db, $sql); //(send query: database connection, query)
     }
     
-//     // truncate text
-//     public function truncateText($text, $maxchar, $end='...') {
-//         if (strlen($text) > $maxchar || $text == '') {
-//             $words = preg_split('/\s/', $text);      
-//             $output = '';
-//             $i      = 0;
-//             while (1) {
-//                 $length = strlen($output)+strlen($words[$i]);
-//                 if ($length > $maxchar) {
-//                     break;
-//                 } 
-//                 else {
-//                     $output .= " " . $words[$i];
-//                     ++$i;
-//                 }
-//             }
-//             $output .= $end;
-//         } 
-//         else {
-//             $output = $text;
-//         }
-//         return $output;
-//     }
+    // truncate text
+    public function truncateText($text, $maxchar, $end='...') {
+        if (strlen($text) > $maxchar || $text == '') {
+            $words = preg_split('/\s/', $text);      
+            $output = '';
+            $i      = 0;
+            while (1) {
+                $length = strlen($output)+strlen($words[$i]);
+                if ($length > $maxchar) {
+                    break;
+                } 
+                else {
+                    $output .= " " . $words[$i];
+                    ++$i;
+                }
+            }
+            $output .= $end;
+        } 
+        else {
+            $output = $text;
+        }
+        return $output;
+    }
 
 //     public function friendlyDate($date) {
 //         return date_format($date, 'g:ia \o\n l jS F Y');

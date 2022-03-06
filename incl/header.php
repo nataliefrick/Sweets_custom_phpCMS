@@ -27,8 +27,8 @@ include_once("incl/config.php");
             <section id="toolbar">
                 <ul class="nobullets flex end">
                 <li class="welcomemsg">Welcome, <?= ucwords($_SESSION['username']) ?></li>
-                <li><a href="logout.php">Logout</a></li>
-                <li><a href="admin.php">Dashboard</a></li></ul>
+                <li><a class="u-link" href="logout.php">Logout</a></li>
+                <li><a class="u-link" href="admin.php">Dashboard</a></li></ul>
             </section>
     <?php } ?>
     <header> 

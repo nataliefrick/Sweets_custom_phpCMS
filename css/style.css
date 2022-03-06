@@ -296,6 +296,14 @@ a, ul, li, p, td {
     color:rgb(72, 94, 94);
 }
 
+a {
+    text-decoration: none;
+}
+
+a.u-link {
+    text-decoration: underline;
+}
+
 table {
     /* border-collapse: collapse; */
     border: transparent;
@@ -700,4 +708,48 @@ nav a:hover {
 
 #toolbar a:hover {
     color:rgb(255, 241, 234);
+}
+
+/* ---------------ALL RECIPES--------------- */
+#allRecipes.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.recipe-card {
+    width: 200px;
+    border: 1px solid rgba(72, 94, 94, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 1em;
+}
+
+.recipe-card img {
+    width: 100%;
+}
+
+.recipe-card h2 {
+    font-size: 1.2em;
+    text-align: center;
+    padding: 0 10px;
+    margin-bottom: 0;
+    text-decoration: none;
+}
+
+.recipe-card p {
+    font-size: 0.8em;
+    padding: 0 10px;
+    text-decoration: none;
+}
+
+a.read-more {
+    text-align: center;
+    color: rgb(221, 142, 105);
+    margin: 0 auto;
+    font-size: 0.9em;
 }
