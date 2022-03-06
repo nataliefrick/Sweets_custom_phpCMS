@@ -15,19 +15,19 @@ $recipes = $recipe->getLatestRecipes();
   <!-- Full-width images with number and caption text -->
   <div class="mySlides fade">
     <!-- <div class="numbertext">1 / 3</div> -->
-    <img class="slides" src="img/20170214-37.jpg" style="width:100%">
+    <img class="slides" src="img/20170214-37.jpg" alt="A slice of Rhubarb & Cardamom Cake with ginger whipped cream." style="width:100%">
     <div class="text1"><span class="bold">Coming Soon</span><br>Rhubarb & Cardamom Cake</div>
   </div>
 
   <div class="mySlides fade">
     <!-- <div class="numbertext">2 / 3</div> -->
-    <img class="slides" src="img/GingernutSquares-201701109283.jpg" style="width:100%">
+    <img class="slides" src="img/gingernutSquares-201701109283.jpg" alt="A stack of gingerbread cookie bars." style="width:100%">
     <div class="text2"><span class="bold">Coming Soon</span><br>Gingerbread Cookie Bars</div>
   </div>
 
   <div class="mySlides fade">
     <!-- <div class="numbertext">3 / 3</div> -->
-    <img class="slides" src="img/20191105-cakes_lastsession-0660.jpg" style="width:100%">
+    <img class="slides" src="img/20191105-cakes_lastsession-0660.jpg" alt="A picture of a milkpie with a slice taken out." style="width:100%">
     <div class="text3">Milktart</div>
   </div>
 
@@ -49,41 +49,43 @@ $recipes = $recipe->getLatestRecipes();
 </div>
 
 <div class="row">
-<section class="container" id="intro">
-    <h2>Latest Recipes</h2>
-</section>
-<section class="container" id="newRecipes">
-    <?php foreach($recipes as $r) { 
-        if($r['author']=="MFCL") {
-            $author = "Marie-France Champoux-Larsson";
-            $avatar = "img/avatar-mfcl.jpg";
-        } else { 
-            $author = "Natalie Salomons Frick";
-            $avatar = "img/avatar-nsf.jpg";
-        }    
-    
-    ?>    
-        <article class="new-recipe-card">
-            <a href="show-recipe.php?id=<?= $r['id']; ?>">
-                <img src="<?= $r['imgLink']; ?>" alt="<?= $r['imgAlt']; ?>"> 
-                <div class="teaser">
-                    <h2><?= $r['title']; ?></h2> 
+    <section class="container" id="intro">
+        <h2>Latest Recipes</h2>
+    </section>
+    <section class="container" id="newRecipes">
+        <h2 class="dont-show">Latest Recipes</h2>
+        <?php foreach($recipes as $r) { 
+            if($r['author']=="MFCL") {
+                $author = "Marie-France Champoux-Larsson";
+                $avatar = "img/avatar-mfcl.jpg";
+            } else { 
+                $author = "Natalie Salomons Frick";
+                $avatar = "img/avatar-nsf.jpg";
+            }    
+        
+        ?>    
+            <article class="new-recipe-card">
+                <a href="show-recipe.php?id=<?= $r['id']; ?>">
+                    <img src="<?= $r['imgLink']; ?>" alt="<?= $r['imgAlt']; ?>"> </a>
+                    <div class="teaser">
+                        <h2><?= $r['title']; ?></h2> 
 
-                    <?= $recipe->truncateText($r['story'], 300); ?></p>
+                        <?= $recipe->truncateText($r['story'], 300); ?></p>
 
-                    <div class="publish-details-index">
-                        <div>
-                            <div class="author"><?= $author; ?></div>
-                            <div class="date"><?= $r['published']; ?></div>
+                        <div class="publish-details-index">
+                            <div>
+                                <div class="author"><?= $author; ?></div>
+                                <div class="date"><?= $r['published']; ?></div>
+                            </div>
+                            <img class="avatar" src="<?= $avatar; ?>" alt="avatar of <?= $author; ?>">
                         </div>
-                        <img class="avatar" src="<?= $avatar; ?>" alt="avatar of <?= $author; ?>">
-                    </div>
 
-                    <a class="read-more u-link" href="show-recipe.php?id=<?= $r['id']; ?>"><br>See Recipe</a>
-                </div>
-            </a>
-        </article>
-    <?php } ?>
+                        <a class="read-more u-link spacer" href="show-recipe.php?id=<?= $r['id']; ?>">See Recipe</a>
+                    </div>
+                
+            </article>
+        <?php } ?>
+    </section>
 </div>
 
 <?php 

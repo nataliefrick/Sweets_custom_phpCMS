@@ -33,9 +33,7 @@
                     <br>
                     <input id="signup-btn" class="btn" type="submit" onClick="signup()" value="Sign me up!">
                 </form>
-            </section>
         </div>
-
     </div>
     <div id="footer-toolbar">
         <p>Projekt - DT093G, Webbutveckling II  |  Natalie Salomons Frick. nasa2014</p>

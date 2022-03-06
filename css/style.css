@@ -387,7 +387,9 @@ html, body {
     margin: 0;
 }
 
+.dont-show {display:none;}
 
+.spacer {margin-top: 1em;}
 
 /* -----------------General Typography----------------- */
 .text1, .text2, .text3, select, option, .author, .date, textarea,
@@ -673,11 +675,12 @@ img.avatar {
     flex-direction: column;
 }
 
-.teaser a h2 {
+.teaser h2 {
     font-size: 1em;
+    margin-bottom: 0;
 }
 
-.teaser a p {
+.teaser p {
     font-size: 0.8em;
 }
 
@@ -929,7 +932,8 @@ nav a:hover {
 
 a.read-more {
     text-align: center;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     justify-content: center!important;
     color: rgb(221, 142, 105);
     font-size: 0.8em;
