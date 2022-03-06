@@ -23,3 +23,8 @@ $recipes = $recipe->getAllRecipes();
             </a>
         </article>
     <?php } ?>
+
+
+</section>
+<?php 
+include_once("incl/footer.php"); 

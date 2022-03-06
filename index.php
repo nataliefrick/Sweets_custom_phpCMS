@@ -9,6 +9,44 @@ $recipes = $recipe->getLatestRecipes();
 
 
 ?>
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <!-- <div class="numbertext">1 / 3</div> -->
+    <img class="slides" src="img/20170214-37.jpg" style="width:100%">
+    <div class="text1"><span class="bold">Coming Soon</span><br>Rhubarb & Cardamom Cake</div>
+  </div>
+
+  <div class="mySlides fade">
+    <!-- <div class="numbertext">2 / 3</div> -->
+    <img class="slides" src="img/GingernutSquares-201701109283.jpg" style="width:100%">
+    <div class="text2"><span class="bold">Coming Soon</span><br>Gingerbread Cookie Bars</div>
+  </div>
+
+  <div class="mySlides fade">
+    <!-- <div class="numbertext">3 / 3</div> -->
+    <img class="slides" src="img/20191105-cakes_lastsession-0660.jpg" style="width:100%">
+    <div class="text3">Milktart</div>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<div id="spacer">
+
+</div>
 
 <div class="row">
 <section class="container" id="intro">
@@ -47,3 +85,6 @@ $recipes = $recipe->getLatestRecipes();
         </article>
     <?php } ?>
 </div>
+
+<?php 
+include_once("incl/footer.php"); 
