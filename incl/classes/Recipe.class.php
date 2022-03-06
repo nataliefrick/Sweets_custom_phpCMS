@@ -159,13 +159,6 @@ class Recipe {
         return mysqli_query($this->db, $sql); //(send query: database connection, query)
     }
 
-
-
-
-
-    
-    
-    
     // get methods
     public function getAllRecipes() : array {
         //SQL Query
@@ -183,6 +176,25 @@ class Recipe {
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
     
+    public function getLatestRecipes() : array {
+        //SQL Query
+        $sql = "SELECT
+            id,
+            title,
+            author,
+            category,
+            story,
+            imgLink,
+            imgAlt,     
+            DATE_FORMAT(created, '%b %D, %Y') AS published   
+        FROM recipes 
+        ORDER BY created desc
+        LIMIT 2;";  
+
+        $result = mysqli_query($this->db, $sql); //(send query: database connection, query)
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+
     public function getRecipeListAdmin() : array {
         //SQL Query
         $sql = "SELECT

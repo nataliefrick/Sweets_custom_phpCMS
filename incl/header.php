@@ -36,4 +36,3 @@ include_once("incl/config.php");
     <a class="noline" href="index.php"><h1>SWEETS</h1></a>
         <?php include("incl/navbar.php"); ?>
     </header>
-    <div class="row">

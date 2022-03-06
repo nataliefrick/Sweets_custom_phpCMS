@@ -528,20 +528,34 @@ div.ingredients div p {
     margin-top: 1em;
 }
 
+.publish-details-index,
 .publish-details {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
     align-items: center;
     margin-top: 1em;
+}
+
+.publish-details {
+    justify-content: flex-start;
+}
+
+.publish-details-index {
+    justify-content: flex-end;
 }
 
 img.avatar {
     border-radius: 50%;
     width: 40px;
     padding-right: 10px;
+    padding-left: 10px;
 }
 
+.teaser {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+}
 
 
 
@@ -719,6 +733,7 @@ nav a:hover {
 }
 
 /* ---------------ALL RECIPES--------------- */
+#newRecipes.container, 
 #allRecipes.container {
     display: flex;
     flex-direction: row;
@@ -726,8 +741,15 @@ nav a:hover {
     gap: 1em;
     align-items: flex-start;
     justify-content: center;
-    width: 80%;
     margin: 0 auto;
+}
+
+#allRecipes.container {
+    width: 80%;
+}
+
+#newRecipes.container{
+    width: 100%;
 }
 
 .recipe-card {
@@ -737,6 +759,20 @@ nav a:hover {
     flex-direction: column;
     justify-content: center;
     padding-bottom: 1em;
+}
+
+.new-recipe-card {
+    width: 600px;
+    height: 350px;
+    border: 1px solid rgba(72, 94, 94, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.new-recipe-card img {
+    height: 100%;
+    width: auto;
 }
 
 .recipe-card img {
@@ -759,7 +795,14 @@ nav a:hover {
 
 a.read-more {
     text-align: center;
-    color: rgb(221, 142, 105);
     margin: 0 auto;
+    justify-content: center!important;
+    color: rgb(221, 142, 105);
     font-size: 0.9em;
+}
+
+teaser.read-more {
+    text-align: center;
+    margin: 0 auto;
+    justify-content: center!important;
 }
