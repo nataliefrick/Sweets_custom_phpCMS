@@ -6,7 +6,7 @@ include("incl/header.php");
     
 $recipe = new Recipe;
 $recipes = $recipe->getAllRecipes();
-// id,title,category,story,imgLink,imgAlt,     published   
+
 ?>
 <section class="container" id="intro">
     <h1>All Recipes</h1>
