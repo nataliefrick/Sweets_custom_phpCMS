@@ -3,11 +3,17 @@ include_once("incl/config.php");
 $page_title = "Recipes";
 include("incl/header.php"); 
 
-    
-$recipe = new Recipe;
-$recipes = $recipe->getAllRecipes();
 $user = new User;
 $authors = $user->getRegisteredUsers();
+    
+if(isset($_GET['id'])) {
+    $filter = $_GET['id'];
+    $recipe = new Recipe;
+    $recipes = $recipe->getRecipes($filter);
+} else {
+    $recipe = new Recipe;
+    $recipes = $recipe->getAllRecipes();
+}
 
 ?>   
 <h1 class="dont-show">All Recipes</h1>
@@ -17,9 +23,14 @@ $authors = $user->getRegisteredUsers();
     <p>Browse and choose a recipe from our database of recipes. Any of these recipes will be sure to excite you taste palate and give your family or guests something to rave about!</p>
 </section>
 <section id="filter">
-    <?php foreach($authors as $a) { ?> 
-        <div class="btn"><?= $a['name']; ?></div>
-    <?php } ?>
+    <h2 class="dont-show">Filter</h2>
+    <p>Filter recipes by author:</p>
+    <div id="filter-btns">
+        <a class="filter-btn" href="all-recipes.php">All</a>
+        <?php foreach($authors as $a) { ?> 
+            <a class="filter-btn" href="all-recipes.php?id=<?= $a['id'] ?>"><?= $a['name']; ?></a>
+        <?php } ?>
+    </div>
 </section>
 <section class="container" id="allRecipes">
     <h2 class="dont-show">All Recipes</h2>

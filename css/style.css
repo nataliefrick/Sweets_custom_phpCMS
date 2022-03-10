@@ -469,11 +469,12 @@ td.btn:hover {
 
 tr:hover {background-color: rgba(72, 94, 94, 0.1);}
 
-div.btn {
+.filter-btn {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 200;
     background-color:rgb(255, 204, 181);
-    /* width: 80px; */
+    min-width: 100px;
+    width: auto;
     text-decoration: none;
     text-transform: uppercase;
     /* font-weight: bold; */
@@ -505,7 +506,7 @@ input.btn {
     width: 100px!important;
 }
 
-div.btn:hover,
+.filter-btn:hover,
 span.btn:hover,
 #signup-btn:hover,
 span#deletePost:hover,
@@ -1140,6 +1141,11 @@ span#signup-btn {
 
 
   #filter {
+    text-align: center;
+
+  }
+
+  #filter-btns {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
