@@ -456,11 +456,11 @@ td.btn a {
     font-weight: bold;
 }
 
-td.btn a:hover { color: rgb(238, 144, 68);  }
+td.btn a:hover { color:rgb(255, 184, 151);  }
 td.btn:hover {
     background-color:rgb(72, 94, 94);
     border: 2px solid rgb(72, 94, 94);
-    color: rgb(238, 144, 68);
+    color:rgb(255, 184, 151);
 }
 
 tr:hover {background-color: rgba(72, 94, 94, 0.1);}
@@ -495,7 +495,7 @@ span#deletePost:hover,
 input.btn:hover {
     background-color:rgb(72, 94, 94);
     border: 2px solid rgb(72, 94, 94);
-    color: rgb(238, 144, 68);
+    color:rgb(255, 184, 151);
 }
 
 #links {
@@ -559,7 +559,7 @@ a.noline {
 }
 
 a:hover {
-    color:rgb(108, 202, 202);
+    color:rgb(255, 184, 151);
 }
 
 
@@ -568,7 +568,7 @@ a:hover {
 
 header h1:hover,
 header a:hover {
-    color:rgb(108, 202, 202);
+    color:rgb(255, 184, 151);
 }
 
 /* Navbar */
@@ -831,7 +831,7 @@ textarea {
 nav a:hover {
     font-weight: bold;
     background-color:rgb(72, 94, 94);
-    color:rgb(221, 142, 105);
+    color:rgb(255, 184, 151);
 }
 
 #maincontent-sidebar {
@@ -852,7 +852,7 @@ nav a:hover {
 }
 
 #toolbar {
-    background-color:rgb(221, 142, 105);
+    background-color:rgb(255, 184, 151);
     color:rgb(72, 94, 94);
     line-height: 1.5em;
     padding-right: 2em;
@@ -941,7 +941,7 @@ a.read-more {
     margin-left: auto;
     margin-right: auto;
     justify-content: center!important;
-    color: rgb(221, 142, 105);
+    color:rgb(255, 184, 151);
     font-size: 0.8em;
 }
 
