@@ -469,6 +469,20 @@ td.btn:hover {
 
 tr:hover {background-color: rgba(72, 94, 94, 0.1);}
 
+div.btn {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 200;
+    background-color:rgb(255, 204, 181);
+    /* width: 80px; */
+    text-decoration: none;
+    text-transform: uppercase;
+    /* font-weight: bold; */
+    color:rgb(72, 94, 94);
+    border: 2px solid rgb(255, 204, 181);
+    margin: 4px;
+    padding: 4px 8px;
+}
+
 span.btn,
 span#deletePost,
 #signup-btn,
@@ -476,7 +490,7 @@ span#deletePost,
 #links p,
 input.btn {
     font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 200;
+    /* font-weight: 200; */
     background-color:rgb(255, 204, 181);
     width: 80px;
     text-decoration: none;
@@ -491,6 +505,7 @@ input.btn {
     width: 100px!important;
 }
 
+div.btn:hover,
 span.btn:hover,
 #signup-btn:hover,
 span#deletePost:hover,
@@ -1122,3 +1137,11 @@ span#signup-btn {
     to {opacity: 1}
   }
 
+
+
+  #filter {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+  }

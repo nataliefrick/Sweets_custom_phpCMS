@@ -89,4 +89,4 @@ $recipes = $recipe->getLatestRecipes();
 </div>
 
 <?php 
-include_once("incl/footer.php"); 
+include_once("incl/footer-index.php"); 
