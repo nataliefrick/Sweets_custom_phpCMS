@@ -1,26 +1,24 @@
-<?php 
-include_once("incl/config.php"); 
+<?php
+include_once("incl/config.php");
 
 if(isset($_GET['id'])) {
     $id = intval($_GET['id']);
-    
+
     $recipe = new Recipe;
     $details = $recipe->getRecipeById($id);
+    // print_r( gettype($details['author']));
+    $authorID = intval($details['author']);
 
-    if($details['author']=="MFCL") {
-        $author = "Marie-France Champoux-Larsson";
-        $avatar = "img/avatar-mfcl.jpg";
-    } else { 
-        $author = "Natalie Salomons Frick";
-        $avatar = "img/avatar-nsf.jpg";
-    }
-    
+    $user = new User;
+    $author = $user->getAuthorName($authorID);
+    $avatar = 'img/' . $user->getAuthorAvatar($authorID);
+
 } else {
     header("Location: index.php");
 }
 
 $page_title = $details['title'];
-include("incl/header.php"); 
+include("incl/header.php");
 
 ?>
 
@@ -35,7 +33,7 @@ include("incl/header.php");
             <article>
                 <h2 class="title"><?= $details['title']; ?></h2>
                 <div class="publish-details">
-                    <img class="avatar" src="<?= $avatar; ?>" alt="avatar of <?= $author; ?>">
+                    <img class="avatar" src="<?= $avatar; ?>" alt="avatar of <?= $name; ?>">
                     <div>
                     <div class="author"><?= $author; ?></div>
                     <div class="date"><?= $details['published']; ?></div>
@@ -68,14 +66,14 @@ include("incl/header.php");
                         <?= $details['directions']; ?>
                     </div>
                 </div>
-                
+
                 <?php
                 // if logged in show edit button
                     $user = new User();
-                    if($user->isLoggedIn()) { ?> 
+                    if($user->isLoggedIn()) { ?>
                         <div id="links"><a href="edit-recipe.php?id=<?= $details['id']; ?>">Edit post</a>
                         <span id="deletePost" onClick="confirmDelete('<?php echo $details['id']; ?>')">Delete post</span>
-                
+
                         <span class="errormsg">
                             <?php
                             if(isset($_SESSION['msg'])) {

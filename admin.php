@@ -38,12 +38,13 @@ include("incl/header.php");
             <?php 
                 $recipe = new Recipe;
                 $recipe_list = $recipe->getRecipeListAdmin();
-                
                 foreach($recipe_list as $r) {
-                    ?>
+                    $author = $user->getAuthorName($r['author']);
+                    $name = strstr($author,  ' ', true);
+                    ?>       
                     <tr>
                         <td><?=$r['title'];?></td>
-                        <td><?=$r['author'];?></td>
+                        <td><?=$name;?></td>
                         <td><?=$r['category'];?></td>
                         <td><?=$r['published'];?></td>
                         <td class="centered btn"><a href="edit-recipe.php?id=<?= $r['id']; ?>">Edit</a></td>

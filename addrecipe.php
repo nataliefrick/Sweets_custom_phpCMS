@@ -7,7 +7,7 @@ $user->restrictPage();
 if(!isset($_POST['title'])) // if a title is not found
 {
     $title = "";
-    $author = "";
+    $author ="";
     $story = "";
     $yield = "";
     $prepT = "";
@@ -37,7 +37,8 @@ if(!isset($_POST['title'])) // if a title is not found
 $page_title = "Add a recipe";
 include("incl/header.php"); 
 include("incl/sidebar.php"); 
-
+$user = new User();
+$authorList = $user->getRegisteredUsers();
 
 ?>
 
@@ -70,8 +71,11 @@ include("incl/sidebar.php");
                 <label for="author">Author:</label><br>
                 <select id="author" name="author" value="<?= $author ?>">
                     <option value=""></option>
-                    <option value="MFCL">Marie-France Champoux-Larsson</option>
-                    <option value="NSF">Natalie Salomons Frick</option>
+                    <!-- <option value="MFCL">Marie-France Champoux-Larsson</option>
+                    <option value="NSF">Natalie Salomons Frick</option> -->
+                    <?php foreach ($authorList as $authors) { ?>
+                        <option value="<?= $authors['id']?>"><?= $authors['name']?></option>
+                    <?php } ?>
                 </select>
                 <label for="category">Category:</label><br>
                 <select id="category" name="category" value="<?= $category ?>">

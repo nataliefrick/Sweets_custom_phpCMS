@@ -50,7 +50,6 @@ class User {
         return false;
     }
 
-
     public function addUser() : bool {
  
         // get current registered users
@@ -116,9 +115,9 @@ class User {
                 $usernameSuccess = true; // if username matches
                 if (password_verify($this->password, $user['password'])) {
                     // fill variable with content, i.e. user is logged in.
-                    $_SESSION['name'] = $this->name;
-                    $_SESSION['username'] = $this->username;
                     $passwordSuccess = true;
+                    $_SESSION['name'] = ucwords(strtok($user['name'],  ' '));//
+                    $_SESSION['username'] = $this->username;
                 } 
             } 
         } 
@@ -138,8 +137,8 @@ class User {
      *  @return boolean
     */ 
     function isLoggedIn() : bool {
-        // if $_SESSION['username'] variable holds content, i.e. user is logged in.
-        if(isset($_SESSION['username'])) {
+        // if $_SESSION['name'] variable holds content, i.e. user is logged in.
+        if(isset($_SESSION['name'])) {
             return true;
         } else { return false; }
     }    
@@ -147,11 +146,35 @@ class User {
         // get list of registered users
     function getRegisteredUsers() : array {
             //SQL Query
-            $sql = "SELECT * FROM user;";
+            $sql = "SELECT * FROM user ORDER BY name;";
             $users = mysqli_query($this->db, $sql); //(send query: database connection, query)
             return mysqli_fetch_all($users, MYSQLI_ASSOC);
     }
        
+    function getAuthorName(int $id) : string {
+         $sql = "
+            SELECT name 
+            FROM user
+            WHERE id=" . $id . "; 
+        ";
+        $authorName = mysqli_query($this->db, $sql); 
+        
+        $author = mysqli_fetch_array($authorName);
+        return $author['name']; 
+    }
+
+    function getAuthorAvatar(int $id) : string {
+        $sql = "
+        SELECT avatar 
+        FROM user
+        WHERE id=" . $id . "; 
+        ";
+        $authorAvatar = mysqli_query($this->db, $sql); 
+        
+        $author = mysqli_fetch_array($authorAvatar);
+        return $author['avatar']; 
+    }
+
 
     /** check to see if user is logged in
      *  redirect for not logged in
