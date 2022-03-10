@@ -26,6 +26,7 @@ include("incl/header.php");
 
 <div class="row">
     <section class="container" id="seeRecipe">
+        <h2 class="dont-show"><?= $details['title']; ?></h2>
         <div class="column-photo picture">
             <img class="feature-img" src="<?= $details['imgLink']; ?>" alt="<?= $details['imgAlt']; ?>">
 
@@ -41,7 +42,7 @@ include("incl/header.php");
                     </div>
                 </div>
                 <div class="story">
-                    <p><?= $details['story']; ?></p>
+                    <?= $details['story']; ?>
                 </div>
                 <div class="info">
                     <div>
@@ -60,11 +61,11 @@ include("incl/header.php");
                 <div id="content">
                     <div class="ingredients">
                         <h3>Ingredients</h3>
-                        <p><?= $details['ingredients']; ?></p>
+                        <?= $details['ingredients']; ?>
                     </div>
                     <div class="instructions">
                         <h3>Directions</h3>
-                        <p><?= $details['directions']; ?></p>
+                        <?= $details['directions']; ?>
                     </div>
                 </div>
                 

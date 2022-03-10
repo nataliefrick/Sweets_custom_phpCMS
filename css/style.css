@@ -702,8 +702,12 @@ img.avatar {
     padding-left: 3em;
 }
 
-/* -----------------ADD RECIPE----------------- */
+.welcome {
+    text-align: center;
+    margin: 40px auto;
+}
 
+/* -----------------ADD RECIPE----------------- */
 form {
     margin: 10px 0;
     border: 1px solid grey;
@@ -840,6 +844,7 @@ nav a:hover {
 }
 
 /* ---------------LOGIN--------------- */
+#login-section,
 #login {
     width: 300px;
     margin: 0 auto;

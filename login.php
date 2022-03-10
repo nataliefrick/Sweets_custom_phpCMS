@@ -2,7 +2,7 @@
 $page_title = "Login Page";
 include("incl/header.php"); 
 ?>
-<section id="login">
+<section id="login-section">
     <h2>Log in</h2>
     <span class="errormsg">
             <?php
@@ -16,11 +16,11 @@ include("incl/header.php");
         
         <label for="username">Username</label>
         <br>
-        <input type="text" name="username" id="username">
+        <input type="text" name="username" id="username-1">
         <br>
         <label for="password">Password:</label>
         <br>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password-1">
         <br>
         <br>
         <input class="btn" type="submit" formaction="login-handler.php" value="Log in">

@@ -7,9 +7,9 @@ $user->restrictPage();
 
 $page_title = "Login Page";
 include("incl/header.php"); 
-include("incl/sidebar.php"); 
-
 ?>
+<p class="welcome">Welcome <?= ucwords($_SESSION['username']) ?> to your dashboard!</p>
+<?php include("incl/sidebar.php"); ?>
     <section id="admin">
         <span class="errormsg">
             <?php
@@ -60,6 +60,6 @@ include("incl/sidebar.php");
         </table>
 
     </section><!-- /admin -->
-</section id="admin-sidebar">
+</section>
 <?php
 include("incl/footer.php");
