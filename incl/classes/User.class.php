@@ -5,6 +5,7 @@ class User {
     // variables
     private $username;
     private $password;
+    private $name;
     private $users = array();
 
     // methods
@@ -39,6 +40,16 @@ class User {
         return false;
     }
 
+    function setName(string $name) : bool { 
+        // check to see is string variable has content
+        if(strlen($name) > 0) {
+            $this->name = $name;
+            return true;
+        }
+
+        return false;
+    }
+
 
     public function addUser() : bool {
  
@@ -59,11 +70,12 @@ class User {
         if($usernameAlreadyReg == false) { 
             $sql = "
                 INSERT INTO user 
-                    (username, password)
+                    (username, password, name)
                 VALUES
                     (
                     '" . $this->username . "', 
-                    '" . password_hash($this->password, PASSWORD_DEFAULT) . "' 
+                    '" . password_hash($this->password, PASSWORD_DEFAULT) . "', 
+                    '" . $this->name . "'
                     );
                 "; 
                 // . password_hash($this->password, PASSWORD_DEFAULT) .
@@ -104,6 +116,7 @@ class User {
                 $usernameSuccess = true; // if username matches
                 if (password_verify($this->password, $user['password'])) {
                     // fill variable with content, i.e. user is logged in.
+                    $_SESSION['name'] = $this->name;
                     $_SESSION['username'] = $this->username;
                     $passwordSuccess = true;
                 } 

@@ -16,7 +16,6 @@
                     <input type="password" name="password" id="password" value="Password">
                     <br>
                     <input class="btn" type="submit" formaction="login-handler.php" value="Log in">
-                    <input class="btn" type="submit" formaction="register-handler.php" value="Register">
                 </form>
             </section>
         </div>

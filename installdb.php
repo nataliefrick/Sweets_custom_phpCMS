@@ -19,6 +19,7 @@ CREATE TABLE user (
     id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(128) NOT NULL,
     password VARCHAR(255) NOT NULL,
+    name VARCHAR(255),
     created timestamp NOT NULL DEFAULT current_timestamp()
 );";
 
@@ -41,7 +42,7 @@ CREATE TABLE recipes (
 );";
 
 // username & password: admin/admin
-$sql .= "INSERT INTO user(username, password)VALUES('admin', '$2y$10$0NOXKqaNb21x38q2V/i3RuZx.AFmDRxsG0WvMEiKuXTCnFAUMZm9i');";
+$sql .= "INSERT INTO user(username, password, name)VALUES('admin', '$2y$10$0NOXKqaNb21x38q2V/i3RuZx.AFmDRxsG0WvMEiKuXTCnFAUMZm9i', 'Admin');";
 
 // INSERT INTO recipes 
 $sql .= "
