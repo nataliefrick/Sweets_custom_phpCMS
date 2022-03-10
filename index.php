@@ -15,7 +15,7 @@ $recipes = $recipe->getLatestRecipes();
   <!-- Full-width images with number and caption text -->
   <div class="mySlides fade">
     <!-- <div class="numbertext">1 / 3</div> -->
-    <img class="slides" src="img/20170214-37.jpg" alt="A slice of Rhubarb & Cardamom Cake with ginger whipped cream." style="width:100%">
+    <img class="slides" src="img/20170214-rhubarbcardamom-37.jpg" alt="A slice of Rhubarb & Cardamom Cake with ginger whipped cream." style="width:100%">
     <div class="text1"><span class="bold">Coming Soon</span><br>Rhubarb & Cardamom Cake</div>
   </div>
 
@@ -27,7 +27,7 @@ $recipes = $recipe->getLatestRecipes();
 
   <div class="mySlides fade">
     <!-- <div class="numbertext">3 / 3</div> -->
-    <img class="slides" src="img/20191105-cakes_lastsession-0660.jpg" alt="A picture of a milkpie with a slice taken out." style="width:100%">
+    <img class="slides" src="img/20191105-milktart-0660.jpg" alt="A picture of a milkpie with a slice taken out." style="width:100%">
     <div class="text3">Milktart</div>
   </div>
 
