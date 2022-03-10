@@ -176,7 +176,6 @@ class Recipe {
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 
-
     public function getRecipes($author) : array {
         $authorID = intval($author);
         $sql = "SELECT
@@ -209,7 +208,7 @@ class Recipe {
             DATE_FORMAT(created, '%b %D, %Y') AS published   
         FROM recipes 
         ORDER BY created desc
-        LIMIT 2;";  
+        LIMIT 5;";  
 
         $result = mysqli_query($this->db, $sql); //(send query: database connection, query)
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
