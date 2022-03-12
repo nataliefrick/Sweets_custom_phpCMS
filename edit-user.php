@@ -4,6 +4,7 @@ include_once("incl/config.php");
 $user = new User();
 $user->restrictPage();
 include("incl/header.php"); 
+?><div class="empty-space"></div><?php
 include("incl/sidebar.php");
 // check to see if edit is wished otherwise send back to admin
 if(isset($_GET['id'])) {
@@ -12,6 +13,9 @@ if(isset($_GET['id'])) {
     $userEdit = new User;
     $details = $userEdit->getUserById($id);
 
+    if (!isset($_SESSION['filename'])) // if a file name is not registered
+        { $avatar = ""; }
+    else { $avatar = $_SESSION['filename']; }
     // echo '<pre>'; var_dump($details); echo '</pre>';
 
     $page_title = "Edit User- '" . $details['name'] . "'";
@@ -50,14 +54,14 @@ if(isset($_GET['id'])) {
     unset($_SESSION['msg']);
     ?>
 </span>
-<p>Step 1: upload a new avatar image</p>
+<!-- <p>Step 1: upload a new avatar image</p>
 <form action="upload.php?msg=avatar" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">Select image to upload:</label>
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Upload Image" name="submit" id="fileupload">    
-</form>
+</form> -->
 
-<p>Step 2: edit content</p>
+<p>Edit name or choose avatar.</p>
 <form method="POST">
     <div class="flex">
         <div class="column-50 float-left">

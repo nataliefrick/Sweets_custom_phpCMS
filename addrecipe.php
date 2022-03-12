@@ -36,6 +36,7 @@ if(!isset($_POST['title'])) // if a title is not found
 
 $page_title = "Add a recipe";
 include("incl/header.php"); 
+?><div class="empty-space"></div><?php
 include("incl/sidebar.php"); 
 $user = new User();
 $authorList = $user->getRegisteredUsers();
@@ -65,15 +66,15 @@ if ($handle = opendir('img/')) {
             unset($_SESSION['msg']);
             ?>
         </span>
-        <p>Step 1: upload a feature image</p>
+        <!-- <p>Step 1: upload a feature image</p>
         <form action="upload.php?msg=recipe" method="post" enctype="multipart/form-data">
             <label for="fileToUpload">Select image to upload:</label>
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload Image" name="submit" id="fileupload">
             
-        </form>
+        </form> -->
 
-        <p>Step 2: add content</p>
+        <p>Add content to recipe</p>
         <form method="POST">
             <div class="flex">
                 <div class="column-50">
@@ -124,12 +125,10 @@ if ($handle = opendir('img/')) {
             <!-- <input type="text" name="imgLink" id="imgLink" value="<?= $imgLink ?>"><br> -->
             <select id="imgLink" name="imgLink" value="<?= $imgLink ?>">
                  <?php echo $thelist; ?>
-            </select>
+            </select><br>
             <label for="imgAlt">Photo Alt-text:</label><br>
             <input type="text" name="imgAlt" id="imgAlt" value="<?= $imgAlt ?>"><br>
             <input id="submit" type="submit" value="Create" formaction="addrecipe-handler.php">
-            <input id="reset" type="submit" value="Reset" formaction="addrecipe-reset.php" >
-
         </form>
 
     </section>

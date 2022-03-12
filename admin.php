@@ -8,7 +8,7 @@ $user->restrictPage();
 $page_title = "Login Page";
 include("incl/header.php"); 
 ?>
-<p class="welcome">Welcome <?= ucwords($_SESSION['name']) ?> to your dashboard!</p>
+<div class="empty-space"></div>
 <?php include("incl/sidebar.php"); ?>
     <section id="admin">
         <span class="errormsg">

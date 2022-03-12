@@ -18,14 +18,15 @@ if(isset($_GET['id'])) {
     $recipe = new Recipe;
     $details = $recipe->getRecipeById($id);
 
-    if($details['author']=="MFCL") {
-        $author = "Marie-France Champoux-Larsson";
-    } else { 
-        $author = "Natalie Salomons Frick";
-    }
+    // if($details['author']=="MFCL") {
+    //     $author = "Marie-France Champoux-Larsson";
+    // } else { 
+    //     $author = "Natalie Salomons Frick";
+    // }
     
     $page_title = "Edit Recipe- '" . $details['title'] . "'";
     include("incl/header.php"); 
+    ?><div class="empty-space"></div><?php
     include("incl/sidebar.php"); 
 
     // check to see if form has been submitted
@@ -43,6 +44,16 @@ if(isset($_GET['id'])) {
         $category = $details['category'];
     } else {  }
 
+    // populate dropdown with img files
+    $thelist = '<option value=""></option>';
+    if ($handle = opendir('img/')) {
+        while (false !== ($file = readdir($handle))) {
+            if ($file != "." && $file != "..") {         
+                $thelist .= '<option value="'.$file.'">'.$file.'</option>';
+            }
+        }
+        closedir($handle);
+    }
 }
 
 ?>
@@ -59,28 +70,28 @@ if(isset($_GET['id'])) {
             unset($_SESSION['msg']);
             ?>
         </span>
-        <p>Step 1: upload a new feature image</p>
+        <!-- <p>Step 1: upload a new feature image</p>
         <form action="upload.php" method="post" enctype="multipart/form-data">
             <label for="fileToUpload">Select image to upload:</label>
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload Image" name="submit" id="fileupload">    
-        </form>
+        </form> -->
 
-        <p>Step 2: edit content</p>
+        <p>Edit content</p>
         <form method="POST">
             <div class="flex">
                 <div class="column-50 float-left">
                 <label for="title">Title:</label><br>
                 <input type="text" name="title" id="title" value="<?= $title ?>"><br>
                 <label for="author">Author:</label><br>
-                <select id="author" name="author" value="">
-                    <?php if($author=="MFCL") { ?>
+                <select id="author" name="author" value="" selected="<?= $author ?>">
+                    <!-- <?php if($author=="MFCL") { ?>
                         <option value="MFCL">Marie-France Champoux-Larsson</option>
                         <option value="NSF">Natalie Salomons Frick</option> 
                         <?php } else { ?>
                         <option value="NSF">Natalie Salomons Frick</option>
                         <option value="MFCL">Marie-France Champoux-Larsson</option>
-                        <?php } ?>
+                        <?php } ?> -->
                 </select>
                 <label for="category">Category:</label><br>
                 <select id="category" name="category" value="<?= $category ?>">
@@ -118,7 +129,9 @@ if(isset($_GET['id'])) {
             <label for="imgLink">Photo filename:</label><br>
             <input type="text" name="imgLink" id="imgLink" value="<?= $imgLink ?>"><br>
             <label for="imgAlt">Photo Alt-text:</label><br>
-            <input type="text" name="imgAlt" id="imgAlt" value="<?= $imgAlt ?>"><br>
+            <select id="imgLink" name="imgLink" value="<?= $imgLink ?>">
+                 <?php echo $thelist; ?>
+            </select><br>
             <input id="submit" type="submit" value="Update" formaction="edit-recipe-handler.php?id=<?= $id ?>">
 
         </form>

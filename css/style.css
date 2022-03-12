@@ -394,6 +394,9 @@ html, body {
     margin-right: auto;
 }
 .spacer {margin-top: 1em;}
+.empty-space {
+    margin-top: 40px;
+}
 
 /* -----------------General Typography----------------- */
 .text1, .text2, .text3, select, option, .author, .date, textarea,
@@ -469,6 +472,10 @@ td.btn:hover {
 
 tr:hover {background-color: rgba(72, 94, 94, 0.1);}
 
+.btn-spacer {
+    border: 3px solid #fff!important;
+}
+
 .filter-btn {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 200;
@@ -526,7 +533,6 @@ input.btn:hover {
     font-family: 'Source Sans Pro', sans-serif;
     background-color:rgb(255, 194, 145);
 }
-
 
 h1, h2, h3, h4 {text-transform: uppercase;}
 
@@ -717,6 +723,7 @@ img.avatar {
     justify-content: flex-start;
 }
 
+#uploadFile,
 #addRecipe,
 #admin {
     width: 80%;
