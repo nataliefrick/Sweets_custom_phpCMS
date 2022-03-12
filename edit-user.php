@@ -31,8 +31,12 @@ if(isset($_GET['id'])) {
     $thelist = '<option value=""></option>';
     if ($handle = opendir('img/')) {
         while (false !== ($file = readdir($handle))) {
-            if ($file != "." && $file != "..") {         
+            if ($file != "." && $file != "..") {       
+                if ($file == $details['avatar']) { 
+                    $thelist .= '<option selected="selected" value="'.$file.'">'.$file.'</option>';
+                } else {
                 $thelist .= '<option value="'.$file.'">'.$file.'</option>';
+                }
             }
         }
         closedir($handle);
@@ -54,12 +58,6 @@ if(isset($_GET['id'])) {
     unset($_SESSION['msg']);
     ?>
 </span>
-<!-- <p>Step 1: upload a new avatar image</p>
-<form action="upload.php?msg=avatar" method="post" enctype="multipart/form-data">
-    <label for="fileToUpload">Select image to upload:</label>
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit" id="fileupload">    
-</form> -->
 
 <p>Edit name or choose avatar.</p>
 <form method="POST">

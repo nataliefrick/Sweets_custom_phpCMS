@@ -57,7 +57,7 @@ $recipes = $recipe->getLatestRecipes();
         <?php foreach($recipes as $r) { ?>    
             <article class="new-recipe-card">
                 <a href="show-recipe.php?id=<?= $r['id']; ?>">
-                    <img src="<?= $r['imgLink']; ?>" alt="<?= $r['imgAlt']; ?>"> </a>
+                    <img src="img/<?= $r['imgLink']; ?>" alt="<?= $r['imgAlt']; ?>"> </a>
                     <div class="teaser">
                         <h2><?= $r['title']; ?></h2> 
 

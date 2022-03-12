@@ -48,10 +48,13 @@ if(isset($_GET['id'])) {
     // populate dropdown with img files
     $thelist = '<option value=""></option>';
     if ($handle = opendir('img/')) {
-        while (false !== ($file = readdir($handle))) {   
-            if ($file != "." && $file != "..") {         
-                $thelist .= '<option value="' . $file . '">'. $file .'</option>';
-
+        while (false !== ($file = readdir($handle))) {
+            if ($file != "." && $file != "..") {       
+                if ($file == $imgLink) { 
+                    $thelist .= '<option selected="selected" value="'.$file.'">'.$file.'</option>';
+                } else {
+                $thelist .= '<option value="'.$file.'">'.$file.'</option>';
+                }
             }
         }
         closedir($handle);

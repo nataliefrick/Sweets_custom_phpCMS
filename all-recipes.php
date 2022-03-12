@@ -37,7 +37,7 @@ if(isset($_GET['id'])) {
     <?php foreach($recipes as $r) { ?>    
         <article class="recipe-card">
             <a href="show-recipe.php?id=<?= $r['id']; ?>">
-                <img src="<?= $r['imgLink']; ?>" alt="<?= $r['imgAlt']; ?>"> </a>
+                <img src="img/<?= $r['imgLink']; ?>" alt="<?= $r['imgAlt']; ?>"> </a>
                 <h2><?= $r['title']; ?></h2> 
                 <?= $recipe->truncateText($r['story'], 150); ?></p>
                 <a class="read-more u-link" href="show-recipe.php?id=<?= $r['id']; ?>">See Recipe</a>

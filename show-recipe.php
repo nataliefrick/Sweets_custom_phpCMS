@@ -26,7 +26,7 @@ include("incl/header.php");
     <section class="container" id="seeRecipe">
         <h2 class="dont-show"><?= $details['title']; ?></h2>
         <div class="column-photo picture">
-            <img class="feature-img" src="<?= $details['imgLink']; ?>" alt="<?= $details['imgAlt']; ?>">
+            <img class="feature-img" src="img/<?= $details['imgLink']; ?>" alt="<?= $details['imgAlt']; ?>">
 
         </div>
         <div class="column-recipe">
