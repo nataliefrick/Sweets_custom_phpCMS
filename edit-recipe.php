@@ -17,6 +17,7 @@ if(isset($_GET['id'])) {
     
     $recipe = new Recipe;
     $details = $recipe->getRecipeById($id);
+    $authorList = $user->getRegisteredUsers();
 
     // if($details['author']=="MFCL") {
     //     $author = "Marie-France Champoux-Larsson";
@@ -32,7 +33,7 @@ if(isset($_GET['id'])) {
     // check to see if form has been submitted
     if(isset($details['title'])) {
         $title = $details['title'];
-        $author = $details['author'];
+        $author = $user->getAuthorName($details['author']);
         $story = $details['story'];
         $yield = $details['yield'];
         $prepT = $details['prepTime'];
@@ -47,13 +48,19 @@ if(isset($_GET['id'])) {
     // populate dropdown with img files
     $thelist = '<option value=""></option>';
     if ($handle = opendir('img/')) {
-        while (false !== ($file = readdir($handle))) {
+        while (false !== ($file = readdir($handle))) {   
             if ($file != "." && $file != "..") {         
-                $thelist .= '<option value="'.$file.'">'.$file.'</option>';
+                $thelist .= '<option value="' . $file . '">'. $file .'</option>';
+
             }
         }
         closedir($handle);
     }
+
+    
+
+    // categories
+    $categoryList = [ "cakes", "cupcakes&muffins", "pies & tarts", "baked custard", "pudding", "cookies & bars", "breads & loafs", "sweets & desserts" ];
 }
 
 ?>
@@ -70,12 +77,7 @@ if(isset($_GET['id'])) {
             unset($_SESSION['msg']);
             ?>
         </span>
-        <!-- <p>Step 1: upload a new feature image</p>
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-            <label for="fileToUpload">Select image to upload:</label>
-            <input type="file" name="fileToUpload" id="fileToUpload">
-            <input type="submit" value="Upload Image" name="submit" id="fileupload">    
-        </form> -->
+
 
         <p>Edit content</p>
         <form method="POST">
@@ -84,26 +86,20 @@ if(isset($_GET['id'])) {
                 <label for="title">Title:</label><br>
                 <input type="text" name="title" id="title" value="<?= $title ?>"><br>
                 <label for="author">Author:</label><br>
-                <select id="author" name="author" value="" selected="<?= $author ?>">
-                    <!-- <?php if($author=="MFCL") { ?>
-                        <option value="MFCL">Marie-France Champoux-Larsson</option>
-                        <option value="NSF">Natalie Salomons Frick</option> 
-                        <?php } else { ?>
-                        <option value="NSF">Natalie Salomons Frick</option>
-                        <option value="MFCL">Marie-France Champoux-Larsson</option>
-                        <?php } ?> -->
+                <select id="author" name="author" selected="<?= $author ?>">
+                <?php foreach ($authorList as $authors) { ?>
+                    <option value="<?= $authors['id']?>"<?=$details['author'] == $authors['id'] ? ' selected="selected"' : '';?>><?= $authors['name']?></option>
+                <?php } ?>
                 </select>
                 <label for="category">Category:</label><br>
                 <select id="category" name="category" value="<?= $category ?>">
-                    <option value=""></option>
-                    <option value="cakes">Cakes</option>
-                    <option value="cupcakes&muffins">Cupcakes & Muffins</option>
-                    <option value="pies & tarts">Pies & Tarts</option>
-                    <option value="baked custard">Baked Custard</option>
-                    <option value="pudding">Pudding</option>
-                    <option value="cookies & bars">Cookies & Bars</option>
-                    <option value="breads & loafs">Breads & Loafs</option>
-                    <option value="sweets & desserts">Sweets & Desserts</option>
+                <?php foreach ($categoryList as $c) { ?>
+                    <option value="<?= $c?>"<?=$category == $c ? ' selected="selected"' : '';?>><?= $c?></option>
+                <?php } ?>
+                </select>
+                <label for="imgLink">Photo filename:</label><br>
+                <select id="imgLink" name="imgLink">
+                    <?php echo $thelist; ?>
                 </select>
                 </div>
                 <div class="column-50 float-left">
@@ -113,9 +109,13 @@ if(isset($_GET['id'])) {
                 <input type="text" name="prepT" id="prepT" value="<?= $prepT ?>"><br>
                 <label for="cookT">Cook Time:</label>
                 <input type="text" name="cookT" id="cookT" value="<?= $cookT ?>"><br>
+                <label for="imgAlt">Photo Alt-text:</label><br>
+                <input type="text" name="imgAlt" id="imgAlt" value="<?= $imgAlt ?>">
                 </div>
             </div>
-
+            <br>
+            
+            
             <label class="top-spacer" for="story">Story:</label><br>
             <textarea name="story" id="editor-story"><?= $story ?></textarea>
             <br>
@@ -125,13 +125,6 @@ if(isset($_GET['id'])) {
             <label for="directions">Directions:</label><br>
             <textarea name="directions" id="editor-directions"><?= $directions ?></textarea>
             <br>
-            <br>
-            <label for="imgLink">Photo filename:</label><br>
-            <input type="text" name="imgLink" id="imgLink" value="<?= $imgLink ?>"><br>
-            <label for="imgAlt">Photo Alt-text:</label><br>
-            <select id="imgLink" name="imgLink" value="<?= $imgLink ?>">
-                 <?php echo $thelist; ?>
-            </select><br>
             <input id="submit" type="submit" value="Update" formaction="edit-recipe-handler.php?id=<?= $id ?>">
 
         </form>

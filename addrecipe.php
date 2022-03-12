@@ -66,14 +66,6 @@ if ($handle = opendir('img/')) {
             unset($_SESSION['msg']);
             ?>
         </span>
-        <!-- <p>Step 1: upload a feature image</p>
-        <form action="upload.php?msg=recipe" method="post" enctype="multipart/form-data">
-            <label for="fileToUpload">Select image to upload:</label>
-            <input type="file" name="fileToUpload" id="fileToUpload">
-            <input type="submit" value="Upload Image" name="submit" id="fileupload">
-            
-        </form> -->
-
         <p>Add content to recipe</p>
         <form method="POST">
             <div class="flex">
@@ -83,8 +75,6 @@ if ($handle = opendir('img/')) {
                 <label for="author">Author:</label><br>
                 <select id="author" name="author" value="<?= $author ?>">
                     <option value=""></option>
-                    <!-- <option value="MFCL">Marie-France Champoux-Larsson</option>
-                    <option value="NSF">Natalie Salomons Frick</option> -->
                     <?php foreach ($authorList as $authors) { ?>
                         <option value="<?= $authors['id']?>"><?= $authors['name']?></option>
                     <?php } ?>
@@ -101,6 +91,10 @@ if ($handle = opendir('img/')) {
                     <option value="breads & loafs">Breads & Loafs</option>
                     <option value="sweets & desserts">Sweets & Desserts</option>
                 </select>
+                <label for="imgLink">Photo filename:</label><br>
+                <select id="imgLink" name="imgLink" value="<?= $imgLink ?>">
+                    <?php echo $thelist; ?>
+                </select>
                 </div>
                 <div class="column-50">
                 <label for="yield">Recipe yield:</label>
@@ -109,6 +103,8 @@ if ($handle = opendir('img/')) {
                 <input type="text" name="prepT" id="prepT" value="<?= $prepT ?>"><br>
                 <label for="cookT">Cook Time:</label>
                 <input type="text" name="cookT" id="cookT" value="<?= $cookT ?>"><br>
+                <label for="imgAlt">Photo Alt-text:</label><br>
+                <input type="text" name="imgAlt" id="imgAlt" value="<?= $imgAlt ?>">
                 </div>
             </div>
             <label class="top-spacer" for="story">Story:</label><br>
@@ -121,13 +117,7 @@ if ($handle = opendir('img/')) {
             <textarea name="directions" id="editor-directions"><?= $directions ?></textarea>
             <br>
             <br>
-            <label for="imgLink">Photo filename:</label><br>
-            <!-- <input type="text" name="imgLink" id="imgLink" value="<?= $imgLink ?>"><br> -->
-            <select id="imgLink" name="imgLink" value="<?= $imgLink ?>">
-                 <?php echo $thelist; ?>
-            </select><br>
-            <label for="imgAlt">Photo Alt-text:</label><br>
-            <input type="text" name="imgAlt" id="imgAlt" value="<?= $imgAlt ?>"><br>
+
             <input id="submit" type="submit" value="Create" formaction="addrecipe-handler.php">
         </form>
 
