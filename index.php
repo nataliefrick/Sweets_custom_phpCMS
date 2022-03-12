@@ -54,16 +54,7 @@ $recipes = $recipe->getLatestRecipes();
     </section>
     <section class="container" id="newRecipes">
         <h2 class="dont-show">Latest Recipes</h2>
-        <?php foreach($recipes as $r) { 
-            if($r['author']=="MFCL") {
-                $author = "Marie-France Champoux-Larsson";
-                $avatar = "img/avatar-mfcl.jpg";
-            } else { 
-                $author = "Natalie Salomons Frick";
-                $avatar = "img/avatar-nsf.jpg";
-            }    
-        
-        ?>    
+        <?php foreach($recipes as $r) { ?>    
             <article class="new-recipe-card">
                 <a href="show-recipe.php?id=<?= $r['id']; ?>">
                     <img src="<?= $r['imgLink']; ?>" alt="<?= $r['imgAlt']; ?>"> </a>
@@ -74,10 +65,10 @@ $recipes = $recipe->getLatestRecipes();
 
                         <div class="publish-details-index">
                             <div>
-                                <div class="author"><?= $author; ?></div>
+                                <div class="author"><?= $r['name']; ?></div>
                                 <div class="date"><?= $r['published']; ?></div>
                             </div>
-                            <img class="avatar" src="<?= $avatar; ?>" alt="avatar of <?= $author; ?>">
+                            <img class="avatar" src="img/<?= $r['avatar']; ?>" alt="avatar of <?= $r['name']; ?>">
                         </div>
 
                         <a class="read-more u-link spacer" href="show-recipe.php?id=<?= $r['id']; ?>">See Recipe</a>

@@ -3,11 +3,21 @@ include_once("incl/config.php");
 $_SESSION['msg'] = "";
 
 if(isset($_POST["submit"])) {
+    if(isset($_GET['msg'])) {
+      $location = $_GET['msg'];
+    }
     if(!isset($_FILES["fileToUpload"]["tmp_name"])) // check to see if file selected
     {
         $_SESSION['msg'] .= "Please select a file.";
-        header("Location: addrecipe.php"); // load addrecipe.php
-        exit;
+        switch ($location) {
+          case 'avatar':
+            header("Location: edit-user.php"); // load edit-user.php
+            exit;
+          case 'recipe':
+            header("Location: addrecipe.php"); // load addrecipe.php
+            exit;
+        }
+
   } else {
       $target_dir = "img/";
       $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -45,16 +55,37 @@ if(isset($_POST["submit"])) {
       // Check if $uploadOk is set to 0 by an error
       if ($uploadOk == 0) {
         $_SESSION['msg'] .= " Your file was not uploaded.";
-        header("Location: addrecipe.php"); // load addrecipe.php
+        switch ($location) {
+          case 'avatar':
+            header("Location: edit-user.php"); // load edit-user.php
+            exit;
+          case 'recipe':
+            header("Location: addrecipe.php"); // load addrecipe.php
+            exit;
+        }
       // if everything is ok, try to upload file
       } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
           $_SESSION['msg'] .= " The file <em>". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). "</em> has been uploaded.";
           $_SESSION['filename'] = $target_file; // send back file name to link in db
-          header("Location: addrecipe.php"); // load addrecipe.php
+          switch ($location) {
+            case 'avatar':
+              header("Location: edit-user.php"); // load edit-user.php
+              exit;
+            case 'recipe':
+              header("Location: addrecipe.php"); // load addrecipe.php
+              exit;
+          }
         } else {
           $_SESSION['msg'] .= " Sorry, there was an error uploading your file.";
-          header("Location: addrecipe.php"); // load addrecipe.php
+          switch ($location) {
+            case 'avatar':
+              header("Location: edit-user.php"); // load edit-user.php
+              exit;
+            case 'recipe':
+              header("Location: addrecipe.php"); // load addrecipe.php
+              exit;
+          }
         }
       }
   }

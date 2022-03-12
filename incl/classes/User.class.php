@@ -6,6 +6,7 @@ class User {
     private $username;
     private $password;
     private $name;
+    private $avatar;
     private $users = array();
 
     // methods
@@ -50,6 +51,16 @@ class User {
         return false;
     }
 
+    function setAvatar(string $avatar) : bool { 
+        // check to see is string variable has content
+        if(strlen($avatar) > 0) {
+            $this->avatar = $avatar;
+            return true;
+        }
+
+        return false;
+    }
+
     public function addUser() : bool {
  
         // get current registered users
@@ -88,7 +99,18 @@ class User {
         
     }
     
+    public function updateUser($id) : bool {
+        $sql = "
+        
+        UPDATE user 
+        SET 
+            name='" . $this->name . "', 
+            avatar='" . $this->avatar . "'
+        WHERE id=" . $id . "; ";
 
+        return mysqli_query($this->db, $sql); //(send query: database connection, query)
+        
+    }
 
     /** login user
      *  @param string $username, string $password
@@ -175,6 +197,16 @@ class User {
         return $author['avatar']; 
     }
 
+    function getUserById(int $id) : array {
+        $sql = "
+        SELECT * 
+        FROM user
+        WHERE id=" . $id . "; 
+        ";
+
+        $user = mysqli_query($this->db, $sql);
+        return $user->fetch_assoc();
+    }
 
     /** check to see if user is logged in
      *  redirect for not logged in

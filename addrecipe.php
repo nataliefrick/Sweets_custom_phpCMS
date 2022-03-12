@@ -40,6 +40,17 @@ include("incl/sidebar.php");
 $user = new User();
 $authorList = $user->getRegisteredUsers();
 
+// populate dropdown with img files
+$thelist = '<option value=""></option>';
+if ($handle = opendir('img/')) {
+    while (false !== ($file = readdir($handle))) {
+        if ($file != "." && $file != "..") {         
+            $thelist .= '<option value="'.$file.'">'.$file.'</option>';
+        }
+    }
+    closedir($handle);
+}
+
 ?>
 
     <section class="container" id="addRecipe">
@@ -55,7 +66,7 @@ $authorList = $user->getRegisteredUsers();
             ?>
         </span>
         <p>Step 1: upload a feature image</p>
-        <form action="upload.php" method="post" enctype="multipart/form-data">
+        <form action="upload.php?msg=recipe" method="post" enctype="multipart/form-data">
             <label for="fileToUpload">Select image to upload:</label>
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload Image" name="submit" id="fileupload">
@@ -110,7 +121,10 @@ $authorList = $user->getRegisteredUsers();
             <br>
             <br>
             <label for="imgLink">Photo filename:</label><br>
-            <input type="text" name="imgLink" id="imgLink" value="<?= $imgLink ?>"><br>
+            <!-- <input type="text" name="imgLink" id="imgLink" value="<?= $imgLink ?>"><br> -->
+            <select id="imgLink" name="imgLink" value="<?= $imgLink ?>">
+                 <?php echo $thelist; ?>
+            </select>
             <label for="imgAlt">Photo Alt-text:</label><br>
             <input type="text" name="imgAlt" id="imgAlt" value="<?= $imgAlt ?>"><br>
             <input id="submit" type="submit" value="Create" formaction="addrecipe-handler.php">

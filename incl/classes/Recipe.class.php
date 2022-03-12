@@ -198,17 +198,21 @@ class Recipe {
     public function getLatestRecipes() : array {
         //SQL Query
         $sql = "SELECT
-            id,
-            title,
-            author,
-            category,
-            story,
-            imgLink,
-            imgAlt,     
-            DATE_FORMAT(created, '%b %D, %Y') AS published   
-        FROM recipes 
-        ORDER BY created desc
-        LIMIT 5;";  
+            recipes.id,
+            recipes.title,
+            user.name,
+            user.avatar,
+            recipes.category,
+            recipes.story,
+            recipes.imgLink,
+            recipes.imgAlt,     
+            DATE_FORMAT(recipes.created, '%b %D, %Y') AS published 
+        
+        FROM recipes
+            LEFT JOIN user
+                on user.id = recipes.author
+        ORDER BY recipes.created desc
+        LIMIT 5;";   
 
         $result = mysqli_query($this->db, $sql); //(send query: database connection, query)
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
