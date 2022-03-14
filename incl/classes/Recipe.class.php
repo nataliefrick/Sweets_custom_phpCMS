@@ -101,7 +101,7 @@ class Recipe {
         if($story!= "") {
             //sanitize input
             $story = $this->db->real_escape_string($story);
-            $story = htmlentities($story, ENT_QUOTES, 'UTF-8');
+           // $story = htmlentities($story, ENT_QUOTES, 'UTF-8');
 
             $this->story = $story;
             return true;
@@ -127,7 +127,7 @@ class Recipe {
 
             //sanitize input
             $directions = $this->db->real_escape_string($directions);
-            $directions = htmlentities($directions, ENT_QUOTES, 'UTF-8');
+            //$directions = htmlentities($directions, ENT_QUOTES, 'UTF-8');
 
             $this->directions = $directions;
             return true;
