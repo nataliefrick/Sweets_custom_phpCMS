@@ -38,8 +38,14 @@ include("incl/header.php");
             <?php 
                 $recipe = new Recipe;
                 $recipe_list = $recipe->getRecipeListAdmin();
+                if(!$recipe_list) {
+                    header("Location: admin.php");
+                }
                 foreach($recipe_list as $r) {
                     $author = $user->getAuthorName($r['author']);
+                    if(!$user->getAuthorName($r['author'])) {
+                        header("Location: admin.php");
+                    }
                     $name = strstr($author,  ' ', true);
                     ?>       
                     <tr>

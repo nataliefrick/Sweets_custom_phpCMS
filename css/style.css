@@ -14,7 +14,7 @@
     nav ul,
     #mainmenu {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: nowrap;
         margin: 0;
         justify-content: center;
@@ -133,7 +133,7 @@
     }
 
     #main-footer {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 
     #footer-column2 img {
@@ -153,6 +153,17 @@
         padding-left: 3em;
         padding-right: 3em;
         background-color: rgba(72, 94, 94, 0.2);
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+        max-width: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        margin: auto;
     }
 
     nav ul,
@@ -208,12 +219,12 @@
 
     div.ingredients {
         margin-top: 40px;
-        width: 35%;
+        width: 50%;
     }
 
     div.instructions {
         margin-top: 40px;
-        width: 65%;
+        width: 50%;
     }
 
     #main-footer {
@@ -238,6 +249,17 @@
         padding-left: 3em;
         padding-right: 3em;
         background-color: rgba(72, 94, 94, 0.2);
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+        max-width: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        margin: auto;
     }
 
     nav ul,
@@ -307,12 +329,55 @@
 }
 
 @media (max-width: 1023px) {
-    .slideshow-container,
-    .dot, #spacer,.text3, .text1, .text2,
-    .slides {
-        display:none;
-   }
 
+    .text3 {
+        width: 30%;
+        font-size: 2em;
+        height: 42px;
+        bottom: 270px;
+        padding-top: 0;
+        padding-left: 20px;
+    }
+
+    .text1, .text2 {
+        width: 40%;
+        font-size: 1.8em;
+        height: 80px;
+        bottom: 245px;
+        padding-top: 0;
+        padding-left: 20px;
+    }
+
+    .dot, .text3, .text1, .text2,
+    .slides {
+        /* display:none; */
+        top: 298px;
+        left: 0;
+        z-index: 0;
+
+    }
+
+    #seeRecipe.container {
+        margin-top: 0m!important;
+    }
+    
+    #intro.container {
+        margin-top: 26em!important;
+    }
+
+    #spacer {
+        top: 410px;
+    }
+
+    .slideshow-container {
+        max-width: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 120px;
+        left: 0;
+        z-index: -1;
+        margin: auto;
+    }
 }
 
 
@@ -329,7 +394,7 @@
     }
 
     .text1, .text2 {
-        width: 30%;
+        width: 40%;
         font-size: 1.8em;
         height: 80px;
         bottom: 245px;
@@ -419,6 +484,10 @@ a.u-link {
 table {
     /* border-collapse: collapse; */
     border: transparent;
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 th {
@@ -580,6 +649,12 @@ ul.nobullets {
     margin: 0;
 }
 
+@media (max-width: 780px) {
+    #admin-sidebar ul.nobullets{
+        min-width: 150px;
+    }
+}
+
 a.noline {
     text-decoration: none;
 }
@@ -715,7 +790,6 @@ img.avatar {
 /* --------------------ADMIN-------------------- */
 #admin-sidebar
 {
-    width: 80%;
     margin: 0 auto;
     min-height: 300px;
     display: flex;
@@ -723,11 +797,33 @@ img.avatar {
     justify-content: flex-start;
 }
 
+@media (min-width: 781px) {
+    #admin-sidebar {
+        width: 80%;
+    }
+}
+
+@media (max-width: 780px) {
+    #admin-sidebar {
+        width: 95%;
+        min-width: 150px;
+    }
+}
+
 #uploadFile,
 #addRecipe,
 #admin {
     width: 80%;
     padding-left: 3em;
+}
+
+@media (min-width: 401px) and (max-width: 1023px) {
+    #uploadFile,
+    #addRecipe,
+    #admin {
+        width: 70%;
+        padding-left: 2em;
+    }
 }
 
 .welcome {
@@ -858,7 +954,7 @@ textarea {
 
 #sidebar a:hover,
 nav a:hover {
-    font-weight: bold;
+    /* font-weight: bold; */
     background-color:rgb(72, 94, 94);
     color:rgb(255, 184, 151);
 }
@@ -935,7 +1031,7 @@ nav a:hover {
 }
 
 #newRecipes.container{
-    width: 100%;
+    width: 90%;
 }
 
 .recipe-card {
@@ -1024,6 +1120,17 @@ a.read-more {
     margin: 0 auto;
 }
 
+    
+@media (max-width: 780px) {
+    #footer-column1,
+    #footer-column2,
+    #footer-column3 {
+        width: 100%;
+    }
+
+}
+
+
 /* #footer-column2 img {
     height: 200px;
 } */
@@ -1031,6 +1138,16 @@ a.read-more {
 form.signup {
     width: 60%;
     margin: 0 auto;
+}
+
+@media (min-width: 401px) and (max-width: 1023px) {
+    form.signup {
+        width: 35%;
+        margin-top: 0; 
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
 }
 
 span#signup-btn {
@@ -1041,18 +1158,7 @@ span#signup-btn {
 /* -----------------SLIDER----------------- */
 
 /* Slideshow container */
-.slideshow-container {
-    /* max-width: 1000px; */
-    /* position: relative; */
-    max-width: 100%;
 
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    margin: auto;
-  }
 
 
   /* Hide the images by default */
@@ -1096,6 +1202,7 @@ span#signup-btn {
     right: 0;
     text-align: left;
     padding-left: 10px;
+    padding-top: 10px;
 }
 
 
@@ -1154,7 +1261,20 @@ span#signup-btn {
 
   #filter-btns {
       display: flex;
-      flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
-  }
+    }
+    
+    
+@media (min-width: 781px) {
+    #filter-btns {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 400px) {
+    #filter-btns {
+        flex-direction: column;
+        width: auto;
+    }
+}

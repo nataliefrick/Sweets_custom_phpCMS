@@ -182,7 +182,7 @@ class User {
         $authorName = mysqli_query($this->db, $sql); 
         
         $author = mysqli_fetch_array($authorName);
-        return $author['name']; 
+        return $id . $author['name']; 
     }
 
     function getAuthorAvatar(int $id) : string {
