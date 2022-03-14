@@ -23,6 +23,8 @@ class User {
 
         // check to see is string variable has content
         if(strlen($username) > 0) {
+            //sanitize input
+            $username = $this->db->real_escape_string($username);
             $this->username = $username;
             return true;
         }
@@ -34,6 +36,8 @@ class User {
 
         // check to see is string variable has content
         if(strlen($password) > 0) {
+            //sanitize input
+            $password = $this->db->real_escape_string($password);
             $this->password = $password;
             return true;
         }
@@ -44,6 +48,8 @@ class User {
     function setName(string $name) : bool { 
         // check to see is string variable has content
         if(strlen($name) > 0) {
+            //sanitize input
+            $name = $this->db->real_escape_string($name);
             $this->name = $name;
             return true;
         }

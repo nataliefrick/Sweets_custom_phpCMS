@@ -29,6 +29,10 @@ class Recipe {
     // set methods
     public function setTitle(string $title) : bool {
         if($title!= "") {
+
+            //sanitize input
+            $title = $this->db->real_escape_string($title);
+
             $this->title = $title;
             return true;
         } else {
@@ -56,6 +60,10 @@ class Recipe {
 
     public function setYield(string $yield) : bool {
         if($yield!= "") {
+
+            //sanitize input
+            $yield = $this->db->real_escape_string($yield);
+
             $this->yield = $yield;
             return true;
         } else {
@@ -65,6 +73,10 @@ class Recipe {
 
     public function setPrep(string $prepT) : bool {
         if($prepT!= "") {
+
+            //sanitize input
+            $prepT = $this->db->real_escape_string($prepT);
+
             $this->prepT = $prepT;
             return true;
         } else {
@@ -74,6 +86,10 @@ class Recipe {
 
     public function setCook(string $cookT) : bool {
         if($cookT!= "") {
+
+            //sanitize input
+            $cookT = $this->db->real_escape_string($cookT);
+
             $this->cookT = $cookT;
             return true;
         } else {
@@ -83,6 +99,9 @@ class Recipe {
 
     public function setStory(string $story) : bool {
         if($story!= "") {
+            //sanitize input
+            $story = $this->db->real_escape_string($story);
+
             $this->story = $story;
             return true;
         } else {
@@ -92,6 +111,9 @@ class Recipe {
 
     public function setIngredients(string $ingredients) : bool {
         if($ingredients!= "") {
+            //sanitize input
+            $ingredients = $this->db->real_escape_string($ingredients);
+
             $this->ingredients = $ingredients;
             return true;
         } else {
@@ -101,6 +123,10 @@ class Recipe {
 
     public function setDirections(string $directions) : bool {
         if($directions!= "") {
+
+            //sanitize input
+            $directions = $this->db->real_escape_string($directions);
+
             $this->directions = $directions;
             return true;
         } else {
@@ -110,6 +136,10 @@ class Recipe {
       
     public function setImgLink(string $imgLink) : bool {
         if($imgLink!= "") {
+
+            //sanitize input
+            $imgLink = $this->db->real_escape_string($imgLink);
+
             $this->imgLink = $imgLink;
             return true;
         } else {
@@ -119,6 +149,10 @@ class Recipe {
     
     public function setImgAlt(string $imgAlt) : bool {
         if($imgAlt!= "") {
+
+            //sanitize input
+            $imgAlt = $this->db->real_escape_string($imgAlt);
+
             $this->imgAlt = $imgAlt;
             return true;
         } else {
