@@ -365,6 +365,10 @@
         margin-top: 26em!important;
     }
 
+    #intro-all.container {
+        margin-top: 1em!important;
+    }
+
     #spacer {
         top: 410px;
     }
@@ -690,6 +694,7 @@ nav a {
     margin-top: 2em;
 }
 
+#intro-all.container,
 #intro.container {
     width: 60%;
     text-align: center;

@@ -18,7 +18,7 @@ if(isset($_GET['id'])) {
 ?>   
 <h1 class="dont-show">All Recipes</h1>
 
-<section class="container" id="intro">
+<section class="container" id="intro-all">
     <h2>All Recipes</h2>
     <p>Browse and choose a recipe from our database of recipes. Any of these recipes will be sure to excite you taste palate and give your family or guests something to rave about!</p>
 </section>
@@ -48,3 +48,4 @@ if(isset($_GET['id'])) {
 </section>
 <?php 
 include_once("incl/footer.php"); 
+

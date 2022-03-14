@@ -78,27 +78,41 @@ class User {
 
         // if username is not already registered, i.e. new user, insert into database
         if($usernameAlreadyReg == false) { 
-            $sql = "
+            // $sql = "
+            //     INSERT INTO user 
+            //         (username, password, name)
+            //     VALUES
+            //         (
+            //         '" . $this->username . "', 
+            //         '" . password_hash($this->password, PASSWORD_DEFAULT) . "', 
+            //         '" . $this->name . "'
+            //         );
+            //     "; 
+            //     // . password_hash($this->password, PASSWORD_DEFAULT) .
+            //     // password_verify($this->password, $user['password'])
+
+            //     $result = mysqli_query($this->db, $sql); //(send query: database connection, query)
+
+            $stmt = $mysqli->prepare("
                 INSERT INTO user 
                     (username, password, name)
                 VALUES
-                    (
-                    '" . $this->username . "', 
-                    '" . password_hash($this->password, PASSWORD_DEFAULT) . "', 
-                    '" . $this->name . "'
-                    );
-                "; 
-                // . password_hash($this->password, PASSWORD_DEFAULT) .
-                // password_verify($this->password, $user['password'])
+                    ( ?, ?, ?)");
 
-            $result = mysqli_query($this->db, $sql); //(send query: database connection, query)
+            $username = $this->username; 
+            $password = password_hash($this->password, PASSWORD_DEFAULT); 
+            $name = $this->name;   
+
+            $stmt->bind_param("is", $username, $password, $name); 
+            $stmt->execute();
+            $result = mysqli_query($this->db, $stmt); //(send query: database connection, query)
             
             return true; 
 
         } else { return false; } 
         
     }
-    
+
     public function updateUser($id) : bool {
         $sql = "
         
@@ -109,7 +123,7 @@ class User {
         WHERE id=" . $id . "; ";
 
         return mysqli_query($this->db, $sql); //(send query: database connection, query)
-        
+    
     }
 
     /** login user
@@ -182,7 +196,7 @@ class User {
         $authorName = mysqli_query($this->db, $sql); 
         
         $author = mysqli_fetch_array($authorName);
-        return $id . $author['name']; 
+        return $author['name']; 
     }
 
     function getAuthorAvatar(int $id) : string {
