@@ -21,6 +21,7 @@ include("incl/header.php");
         </span>    
 
         <h3>A list of all registered Users</h3>
+        <p>Welcome, <?= $_SESSION['name'] ?> </p>
         <table>
             <thead>
                 <tr>
@@ -36,19 +37,19 @@ include("incl/header.php");
                 $user = new User;
                 $user_list = $user->getRegisteredUsers();
                 foreach($user_list as $u) {
+                    $name = strstr($u['name'],  ' ', true);
                     ?>       
                     <tr>
                         <td><?=$u['name'];?></td>
                         <td><?=$u['username'];?></td>
                         <td><?=$u['avatar'];?></td>
-                        <td class="centered btn"><a href="edit-user.php?id=<?= $u['id']; ?>">Edit</a></td>
-                       
-                    
+                        <?php if($_SESSION['name']==$name) {?>
+                            <td class="centered btn"><a href="edit-user.php?id=<?= $u['id']; ?>">Edit</a></td>
+                        <?php } else { ?>
+                            <td class="centered btn disabled">Edit</td>
+                        <?php } ?>
                     </tr>
-
-                    <?php
-                }
-            ?>
+                <?php } ?>
             </tbody>
         </table>
 
