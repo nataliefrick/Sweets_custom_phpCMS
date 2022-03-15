@@ -12,7 +12,9 @@
                         ?>
                     </span>
                 <form method="POST">
+                    <label class="dont-show" for="username">Username</label>
                     <input type="text" name="username" id="username" value="Username">
+                    <label class="dont-show" for="password">Password:</label>
                     <input type="password" name="password" id="password" value="Password">
                     <br>
                     <input class="btn" type="submit" formaction="login-handler.php" value="Log in">
@@ -27,7 +29,9 @@
         <div id="footer-column3">
             <h2>Email Updates</h2>
                 <form class="signup" method="POST">
+                    <label class="dont-show" for="name">Password:</label>
                     <input type="text" name="name" id="name" value="Your First Name">
+                    <label class="dont-show" for="email">Password:</label>
                     <input type="email" name="email" id="email" value="name@email.com">
                     <br>
                     <input id="signup-btn" class="btn" type="submit" onClick="signup()" value="Sign me up!">

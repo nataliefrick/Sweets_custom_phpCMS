@@ -42,7 +42,7 @@ CREATE TABLE recipes (
     story TEXT NOT NULL,
     ingredients TEXT NOT NULL,
     directions TEXT NOT NULL,
-    imgLink CHAR(200) NOT NULL,
+    imgLink VARCHAR(200) NOT NULL,
     imgAlt VARCHAR(200) NOT NULL,
     created timestamp NOT NULL DEFAULT current_timestamp()
 );";
