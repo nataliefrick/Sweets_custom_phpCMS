@@ -540,6 +540,16 @@ td.btn a {
     font-weight: bold;
 }
 
+td.btn.disabled:hover,
+td.btn.disabled {
+    background-color:rgba(255, 184, 151, 0.2);
+    border: 2px solid #fff;
+    color:rgba(72, 94, 94, 0.5);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
 td.btn a:hover { color:rgb(255, 184, 151);  }
 td.btn:hover {
     background-color:rgb(72, 94, 94);

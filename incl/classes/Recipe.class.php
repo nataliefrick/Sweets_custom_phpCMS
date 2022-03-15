@@ -102,7 +102,7 @@ class Recipe {
             //sanitize input
             $story = $this->db->real_escape_string($story);
            // $story = htmlentities($story, ENT_QUOTES, 'UTF-8');
-           $story = strip_tags($story);
+           // $story = strip_tags($story);
 
             $this->story = $story;
             return true;
@@ -128,7 +128,7 @@ class Recipe {
 
             //sanitize input
             $directions = $this->db->real_escape_string($directions);
-            $directions = strip_tags($directions);
+            // $directions = strip_tags($directions);
 
             $this->directions = $directions;
             return true;
@@ -341,6 +341,7 @@ class Recipe {
                 }
             }
             $output .= $end;
+            $output .= '</p>';
         } 
         else {
             $output = $text;

@@ -68,9 +68,11 @@ include("incl/header.php");
                 </div>
 
                 <?php
-                // if logged in show edit button
+                // if logged in && is author of recipe, show edit button
                     $user = new User();
-                    if($user->isLoggedIn()) { ?>
+                    $name = strstr($author,  ' ', true);
+
+                    if($user->isLoggedIn()&& $_SESSION['name']==$name) { ?>
                         <div id="links"><a href="edit-recipe.php?id=<?= $details['id']; ?>">Edit post</a>
                         <span id="deletePost" onClick="confirmDelete('<?php echo $details['id']; ?>')">Delete post</span>
 
