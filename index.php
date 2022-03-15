@@ -61,7 +61,7 @@ $recipes = $recipe->getLatestRecipes();
                     <div class="teaser">
                         <h2><?= $r['title']; ?></h2> 
 
-                        <?= $recipe->truncateText($r['story'], 300); ?></p>
+                        <?= $recipe->truncateText($r['story'], 150); ?></p>
 
                         <div class="publish-details-index">
                             <div>
