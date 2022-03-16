@@ -84,34 +84,34 @@ class User {
 
         // if username is not already registered, i.e. new user, insert into database
         if($usernameAlreadyReg == false) { 
-            // $sql = "
-            //     INSERT INTO user 
-            //         (username, password, name)
-            //     VALUES
-            //         (
-            //         '" . $this->username . "', 
-            //         '" . password_hash($this->password, PASSWORD_DEFAULT) . "', 
-            //         '" . $this->name . "'
-            //         );
-            //     "; 
-            //     // . password_hash($this->password, PASSWORD_DEFAULT) .
-            //     // password_verify($this->password, $user['password'])
-
-            //     $result = mysqli_query($this->db, $sql); //(send query: database connection, query)
-
-            $stmt = $mysqli->prepare("
+            $sql = "
                 INSERT INTO user 
                     (username, password, name)
                 VALUES
-                    ( ?, ?, ?)");
+                    (
+                    '" . $this->username . "', 
+                    '" . password_hash($this->password, PASSWORD_DEFAULT) . "', 
+                    '" . $this->name . "'
+                    );
+                "; 
+                // . password_hash($this->password, PASSWORD_DEFAULT) .
+                // password_verify($this->password, $user['password'])
 
-            $username = $this->username; 
-            $password = password_hash($this->password, PASSWORD_DEFAULT); 
-            $name = $this->name;   
+                $result = mysqli_query($this->db, $sql); //(send query: database connection, query)
 
-            $stmt->bind_param("is", $username, $password, $name); 
-            $stmt->execute();
-            $result = mysqli_query($this->db, $stmt); //(send query: database connection, query)
+            // $stmt = $mysqli->prepare("
+            //     INSERT INTO user 
+            //         (username, password, name)
+            //     VALUES
+            //         ( ?, ?, ?)");
+
+            // $username = $this->username; 
+            // $password = password_hash($this->password, PASSWORD_DEFAULT); 
+            // $name = $this->name;   
+
+            // $stmt->bind_param("is", $username, $password, $name); 
+            // $stmt->execute();
+            // $result = mysqli_query($this->db, $stmt); //(send query: database connection, query)
             
             return true; 
 

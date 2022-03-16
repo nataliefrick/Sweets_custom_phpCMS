@@ -11,6 +11,7 @@ if(isset($_GET['id'])) {
 
     $user = new User;
     $author = $user->getAuthorName($authorID);
+    $name = strstr($author,  ' ', true);
     $avatar = 'img/' . $user->getAuthorAvatar($authorID);
 
 } else {
@@ -70,9 +71,9 @@ include("incl/header.php");
                 <?php
                 // if logged in && is author of recipe, show edit button
                     $user = new User();
-                    $name = strstr($author,  ' ', true);
 
-                    if($user->isLoggedIn()&& $_SESSION['name']==$name) { ?>
+                    if($user->isLoggedIn()){
+                        if($_SESSION['name']==$name || $_SESSION['name']=="Admin") { ?>
                         <div id="links"><a href="edit-recipe.php?id=<?= $details['id']; ?>">Edit post</a>
                         <span id="deletePost" onClick="confirmDelete('<?php echo $details['id']; ?>')">Delete post</span>
 
@@ -84,7 +85,7 @@ include("incl/header.php");
                             unset($_SESSION['msg']);
                             ?>
                         </span></div>
-                <?php }  ?>
+                <?php }}  ?>
             </article>
         </div>
 

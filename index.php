@@ -6,7 +6,9 @@ include("incl/header.php");
     
 $recipe = new Recipe;
 $recipes = $recipe->getLatestRecipes();
-
+// echo "<pre>" ;
+// var_dump($recipes);
+// echo "</pre>";
 
 ?>
 <!-- Slideshow container -->
@@ -44,9 +46,7 @@ $recipes = $recipe->getLatestRecipes();
   <span class="dot" onclick="currentSlide(3)"></span>
 </div>
 
-<div id="spacer">
-
-</div>
+<div id="spacer"></div>
 
 <div class="row">
     <section class="container" id="intro">

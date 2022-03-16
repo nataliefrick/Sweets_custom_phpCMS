@@ -43,7 +43,7 @@ include("incl/header.php");
                         <td><?=$u['name'];?></td>
                         <td><?=$u['username'];?></td>
                         <td><?=$u['avatar'];?></td>
-                        <?php if($_SESSION['name']==$name) {?>
+                        <?php if($_SESSION['name']==$name || $_SESSION['name']=="Admin") {?>
                             <td class="centered btn"><a href="edit-user.php?id=<?= $u['id']; ?>">Edit</a></td>
                         <?php } else { ?>
                             <td class="centered btn disabled">Edit</td>

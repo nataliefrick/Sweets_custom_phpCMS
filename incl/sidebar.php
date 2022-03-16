@@ -10,7 +10,7 @@
             <li><a href="admin.php">See recipe list</a></li>
             <li><a href="addrecipe.php">Add new recipe</a></li>
             <br>
-            <li><a href="installdb.php">Reset Database</a></li>
+            <li><a href="installdb-published.php">Reset Database</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>
     </section>
