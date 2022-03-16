@@ -75,6 +75,7 @@
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: space-between;
+        align-items: center;
         padding-left: 3em;
         padding-right: 3em;
         background-color: rgba(72, 94, 94, 0.2);
@@ -83,8 +84,8 @@
     nav ul,
     #mainmenu {
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
+        flex-direction: column;
+        /* flex-wrap: nowrap; */
         align-items: center;
         margin: 0;
     }
@@ -139,7 +140,7 @@
     }
 
     #footer-column2 img {
-        height: 300px;
+        height: 180px;
     }
 
 
@@ -366,7 +367,8 @@
     }
     
     #intro.container {
-        margin-top: 26em!important;
+        /* margin-top: 26em!important; */
+        margin-top: 2em!important;
     }
 
     #intro-all.container {
@@ -703,11 +705,42 @@ nav a {
 
 
 /* ------------------MAIN CONTENT------------------ */
+.row#video-intro,
 .row {
     width: 100%;
     margin-top: 2em;
 }
 
+
+@media (min-width: 716px) and (max-width: 1023px) {
+    .row#video-intro{
+       margin-top: 27em!important;
+       margin-left: auto;
+       margin-right: auto;
+       width: 90%!important;
+    }
+
+    #video-intro-container {
+        width: 100%!important;
+    }
+}
+
+
+
+@media (max-width: 715px) {
+    .row#video-intro{
+       margin-top: 17em!important;
+       margin-left: auto;
+       margin-right: auto;
+       width: 90%!important;
+    }
+
+    #video-intro-container {
+        width: 100%!important;
+    }
+}
+
+#video-intro-container,
 #intro-all.container,
 #intro.container {
     width: 60%;
@@ -1310,4 +1343,33 @@ span#signup-btn {
         flex-direction: column;
         width: auto;
     }
+}
+
+@media (min-width: 1024px) {
+    iframe {
+        height:290px;
+        width:600px;
+        border: 0;
+    }
+}
+
+@media (max-width: 1023px) {
+    iframe {
+        height: auto;
+        min-height: 230px;
+        width: 100%;
+        border: 0;
+    }
+}
+
+.embed-container {
+    /* width: 560px; 
+    height: 315px; */
+    width: 100%; 
+    height: auto;
+    margin: 0 auto;
+}
+
+#video-intro {
+    padding: 1em;
 }

@@ -48,6 +48,16 @@ $recipes = $recipe->getLatestRecipes();
 
 <div id="spacer"></div>
 
+<div class="row" id="video-intro">
+  <section  id="video-intro-container">
+    <h2>A quick video intro to the functionality of the site</h2>
+      <div class="embed-container">
+          <!-- <iframe src='https://www.youtube-nocookie.com/embed/PNemwPXfDps' frameborder='0' allowfullscreen></iframe> -->
+          <iframe src='https://www.youtube.com/embed/PNemwPXfDps' frameborder='0' allowfullscreen></iframe>
+      </div>
+  </section>
+</div>
+
 <div class="row">
     <section class="container" id="intro">
         <h2>Latest Recipes</h2>
