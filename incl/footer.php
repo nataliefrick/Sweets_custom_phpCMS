@@ -25,7 +25,7 @@
             <img src="img/chocolatetartlet-11.jpg" alt="A boy enjoying his dessert.">
         </div>
         <div id="footer-column3">
-            <h2>Email Updates</h2>
+            <h2>Newsletter signup</h2>
                 <form class="signup" method="POST">
                     <input type="text" name="name" id="name" value="Your First Name">
                     <input type="email" name="email" id="email" value="name@email.com">
