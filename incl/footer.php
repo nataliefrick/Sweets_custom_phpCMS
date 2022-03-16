@@ -35,7 +35,7 @@
         </div>
     </div>
     <div id="footer-toolbar">
-        <p>Projekt - DT093G, Webbutveckling II  |  Natalie Salomons Frick. nasa2014</p>
+        <p>Projekt - DT093G, Webbutveckling II  |  Natalie Salomons Frick. nasa2014  |  2022</p>
     </div>
 </footer>
 
