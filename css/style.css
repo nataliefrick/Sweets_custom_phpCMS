@@ -66,6 +66,9 @@
         width: 100%;
     }
 
+    #main-footer {
+        flex-direction: column-reverse;
+    }
 }
 
 /* smaller */
@@ -138,11 +141,6 @@
     #main-footer {
         flex-direction: column-reverse;
     }
-
-    #footer-column2 img {
-        height: 180px;
-    }
-
 
 }
 
@@ -236,11 +234,6 @@
         flex-wrap: nowrap;
     }
 
-    #footer-column2 img {
-        height: 180px;
-    }
-
-
 }
 
 /* Larger */
@@ -325,10 +318,6 @@
     #main-footer {
         flex-direction: row;
         flex-wrap: nowrap;
-    }
-
-    #footer-column2 img {
-        height: 200px;
     }
 
 }
@@ -912,6 +901,7 @@ form h2 {
     flex-direction: row;
 }
 
+
 .flex-c {
     display: flex;
     flex-direction: column;
@@ -1167,6 +1157,9 @@ a.read-more {
     font-size: 0.8em;
 }
 
+#footer-toolbar p {
+    padding: 0 1em;
+}
 
 #main-footer {
     display: flex;
@@ -1183,7 +1176,15 @@ a.read-more {
 #footer-column3 {
     width: 33%;
     text-align: center;
-    margin: 0 auto;
+    margin-top: 1em; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#footer-column2 img  {
+    width: 30%;
+    height: auto;
 }
 
     
@@ -1192,14 +1193,11 @@ a.read-more {
     #footer-column2,
     #footer-column3 {
         width: 100%;
+        margin-top: 1em; 
     }
 
-}
+  }
 
-
-/* #footer-column2 img {
-    height: 200px;
-} */
 
 form.signup {
     width: 60%;
@@ -1371,5 +1369,60 @@ span#signup-btn {
 }
 
 #video-intro {
+    padding: 1em;
+}
+
+#our-story.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#our-story article {
+    background-color:rgba(72, 94, 94, 0.01);
+    border: 1px solid rgba(72, 94, 94, 0.1);
+    padding-top: 125px;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+    margin-top: -125px;
+    z-index: -1;
+}
+
+#our-story article h2 {
+    text-align: center;
+}
+
+#our-story picture {
+    width: 250px;
+    margin: 0 auto;
+}
+
+
+#our-story picture img {
+    width: 250px;
+    height: auto;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+.row#about-website {
+    background-color:rgba(72, 94, 94, 0.2);
+    padding: 2em;
+    width: calc(100% - 4em)!important;
+    /* width: 100%!important; */
+}
+
+#about-website section.container {
+    border: 1px solid rgba(72, 94, 94, 0.2);
+    background-color: #fff;
+    width: 80%;
+    margin: 0 auto;
     padding: 1em;
 }
