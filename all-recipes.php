@@ -10,6 +10,7 @@ if(isset($_GET['id'])) {
     $filter = $_GET['id'];
     $recipe = new Recipe;
     $recipes = $recipe->getRecipes($filter);
+    
 } else {
     $recipe = new Recipe;
     $recipes = $recipe->getAllRecipes();
@@ -34,7 +35,12 @@ if(isset($_GET['id'])) {
 </section>
 <section class="container" id="allRecipes">
     <h2 class="dont-show">All Recipes</h2>
-    <?php foreach($recipes as $r) { ?>    
+    <?php 
+    if(sizeof($recipes) == 0) {
+        echo "<p>No recipes found.</p>";
+    };
+    
+    foreach($recipes as $r) { ?>    
         <article class="recipe-card">
             <a href="show-recipe.php?id=<?= $r['id']; ?>">
                 <img src="img/<?= $r['imgLink']; ?>" alt="<?= $r['imgAlt']; ?>"></a>

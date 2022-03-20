@@ -267,7 +267,14 @@ class Recipe {
         DATE_FORMAT(created, '%e-%c-%Y  %H:%i %p' ) AS published        
         FROM recipes ORDER BY created desc;";
 
-        $result = mysqli_query($this->db, $sql); //(send query: database connection, query)
+        $result = mysqli_query($this->db, $sql); 
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+
+    public function getRecipeAuthors() : array {
+        //SQL Query
+        $sql = "SELECT author FROM recipes GROUP BY author;";
+        $result = mysqli_query($this->db, $sql); 
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 

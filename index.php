@@ -3,12 +3,12 @@ include_once("incl/config.php");
 $page_title = "Home";
 include("incl/header.php"); 
 
-    
+$user = new User;
+$authors = $user->getRegisteredUsers();
+
 $recipe = new Recipe;
 $recipes = $recipe->getLatestRecipes();
-// echo "<pre>" ;
-// var_dump($recipes);
-// echo "</pre>";
+$recipeAuthors = $recipe->getRecipeAuthors();
 
 ?>
 <!-- Slideshow container -->
@@ -53,9 +53,26 @@ $recipes = $recipe->getLatestRecipes();
     <h2>A quick video intro to the functionality of the site</h2>
       <div class="embed-container">
           <!-- <iframe src='https://www.youtube-nocookie.com/embed/PNemwPXfDps' frameborder='0' allowfullscreen></iframe> -->
-          <iframe src='https://www.youtube.com/embed/PNemwPXfDps' frameborder='0' allowfullscreen></iframe>
+          <iframe src='https://www.youtube.com/embed/PNemwPXfDps' allowfullscreen></iframe>
       </div>
   </section>
+</div>
+
+<div class="row" id="contr-auth">
+    <section class="container" id="contr-auth-sec">
+        <h2>Contributing Authors</h2>
+        <p>Click on the author to see their recipes.</p>
+        <div class="contr-auth">
+            <?php foreach($authors as $a) { 
+                foreach($recipeAuthors as $ra) {
+                  if($a['id'] == $ra['author']) {        ?> 
+                  <div>
+                    <a href="all-recipes.php?id=<?= $a['id'] ?>"><img class="avatar" src="img/<?= $a['avatar']; ?>" alt="avatar of <?= $a['name']; ?>"></a>
+                    <a href="all-recipes.php?id=<?= $a['id'] ?>"><p class="author"><?= $a['name']; ?></p></a>
+                  </div>
+            <?php } } } ?>
+        </div>
+    </section>
 </div>
 
 <div class="row">
@@ -67,11 +84,11 @@ $recipes = $recipe->getLatestRecipes();
         <?php foreach($recipes as $r) { ?>    
             <article class="new-recipe-card">
                 <a href="show-recipe.php?id=<?= $r['id']; ?>">
-                    <img src="img/<?= $r['imgLink']; ?>" alt="<?= $r['imgAlt']; ?>"> </a>
+                    <img src="img/<?= $r['imgLink']; ?>" alt="<?= $r['imgAlt']; ?>"></a>
                     <div class="teaser">
                         <h2><?= $r['title']; ?></h2> 
 
-                        <?= $recipe->truncateText($r['story'], 150); ?></p>
+                        <?= $recipe->truncateText($r['story'], 150); ?>
 
                         <div class="publish-details-index">
                             <div>

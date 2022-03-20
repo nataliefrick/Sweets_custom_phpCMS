@@ -37,7 +37,7 @@ include("incl/header.php");
         <br>
         <label for="name">Your full name:</label>
         <br>
-        <input type="name" name="name">
+        <input type="text" name="name">
         <br>
         <br>
         <input class="btn" type="submit" formaction="register-handler.php" value="Register"><br>
