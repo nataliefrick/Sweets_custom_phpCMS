@@ -21,6 +21,27 @@
         padding-bottom: 1em;
     }
 
+    .slideshow-container {
+        max-width: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 270px!important;
+        left: 0;
+        z-index: -1;
+        margin: auto;
+    }
+
+    .row#video-intro {
+        margin-top: 8em!important;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%!important;
+    }
+
+    #video-intro-container {
+        width: 100%!important;
+    }
+    
     #privacy,
     #seeRecipe {
         width: 90%;
@@ -92,6 +113,46 @@
         align-items: center;
         margin: 0;
     }
+    .text3 {
+        width: 30%;
+        font-size: 2em;
+        height: 42px;
+        bottom: 270px;
+        padding-top: 0;
+        padding-left: 20px;
+    }
+
+    .text1, .text2 {
+        width: 40%;
+        font-size: 1.8em;
+        height: 80px;
+        bottom: 245px;
+        padding-top: 0;
+        padding-left: 20px;
+    }
+
+    .dot, .text3, .text1, .text2,
+    .slides {
+        /* display:none; */
+        top: 298px;
+        left: 0;
+        z-index: 0;
+
+    }
+
+    #spacer {
+        top: 410px;
+    }
+
+    .slideshow-container {
+        max-width: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 120px;
+        left: 0;
+        z-index: -1;
+        margin: auto;
+    }
 
     #privacy,
     #seeRecipe {
@@ -103,6 +164,16 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
+        margin-top: 0m!important;
+    }
+
+    #intro.container {
+        /* margin-top: 26em!important; */
+        margin-top: 2em!important;
+    }
+
+    #intro-all.container {
+        margin-top: 1em!important;
     }
 
     .column-photo {
@@ -321,65 +392,6 @@
     }
 
 }
-
-@media (max-width: 1023px) {
-
-    .text3 {
-        width: 30%;
-        font-size: 2em;
-        height: 42px;
-        bottom: 270px;
-        padding-top: 0;
-        padding-left: 20px;
-    }
-
-    .text1, .text2 {
-        width: 40%;
-        font-size: 1.8em;
-        height: 80px;
-        bottom: 245px;
-        padding-top: 0;
-        padding-left: 20px;
-    }
-
-    .dot, .text3, .text1, .text2,
-    .slides {
-        /* display:none; */
-        top: 298px;
-        left: 0;
-        z-index: 0;
-
-    }
-
-    #seeRecipe.container {
-        margin-top: 0m!important;
-    }
-    
-    #intro.container {
-        /* margin-top: 26em!important; */
-        margin-top: 2em!important;
-    }
-
-    #intro-all.container {
-        margin-top: 1em!important;
-    }
-
-    #spacer {
-        top: 410px;
-    }
-
-    .slideshow-container {
-        max-width: 100%;
-        overflow: hidden;
-        position: absolute;
-        top: 120px;
-        left: 0;
-        z-index: -1;
-        margin: auto;
-    }
-}
-
-
 
 @media (min-width: 1024px) {
     .slideshow-container {  height: 600px; }
@@ -725,7 +737,7 @@ iframe {
 
 
 
-@media (max-width: 715px) {
+@media (min-width: 401px) and (max-width: 715px) {
     .row#video-intro{
        margin-top: 17em!important;
        margin-left: auto;
